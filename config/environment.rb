@@ -9,7 +9,7 @@ ActionMailer::Base.smtp_settings = {
    :domain => "gmail.com",
    :authentication => "plain",
    :user_name => "got2surf@gmail.com",
-   :password => "naran123"
+   :password => "naran123",
    :enable_starttls_auto => true
 
  }
