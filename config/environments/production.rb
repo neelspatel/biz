@@ -61,6 +61,17 @@ Biz::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.action_mailer.default_url_options = {:host => 'lit-caverns-8821.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+     :port => 587,
+     :domain => "gmail.com",
+     :authentication => :login,
+     :user_name => "npatel@college.harvard.edu",
+     :password => "1613ononNARAN123"
+  }
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
