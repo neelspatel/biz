@@ -14,6 +14,7 @@ gem 'libv8', '~> 3.11.8'
 gem 'geocoder'
 gem 'paperclip', '2.7.0'
 gem 'devise'
+gem 'tlsmail'
 
 
 group :development do

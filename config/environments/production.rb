@@ -68,8 +68,8 @@ Biz::Application.configure do
      :port => "587",
      :domain => "gmail.com",
      :authentication => :login,
-     :user_name => "npatel@college.harvard.edu",
-     :password => "1613ononNARAN123"
+     :user_name => "got2surf@gmail.com",
+     :password => "1613onon"
   }
 
   # Log the query plan for queries taking more than this (works

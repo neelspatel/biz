@@ -16,9 +16,22 @@ Biz::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {:address => "localhost", :port => "1025"}
+ require 'tlsmail' #key but not always described
+Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
+
+ActionMailer::Base.smtp_settings = {
+  :enable_starttls_auto => true,  #this is the important stuff!
+  :address        => 'smtp.gmail.com',
+  :port           => 587,
+  :domain         => 'gmail.com',
+  :authentication => :plain,
+  :user_name      => 'got2surf@gmail.com',
+  :password       => '1613onon'
+    }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
