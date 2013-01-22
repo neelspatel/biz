@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html>
-<div id = "create-form">
-<%= form_tag '/widgets' do %>
-  <div class="field">
-    <%=label_tag 'type' %>
-    <%=text_field_tag 'type'%>
-  </div>
-  <div class="field">
-    <%=label_tag 'data' %>
-    <%=text_field_tag 'data'%>
-  </div>  
-  <div class="field">
-    <%=label_tag 'data2' %>
-    <%=text_field_tag 'data2'%>
-  </div>  
-  <div class="actions">
-    <%= submit_tag 'Save' %>
-  </div>
-<% end %>
+  <head>
+    <script type="text/javascript" language="javascript">
+      
 
-</div>
+      function createDiv()
+      {
+    
+        $("#create-form").append("<div class='field'> <label for='data2'>New Data</label> <input id='data2' name='data2' type='text' /> </div>");
+      }
+
+
+
+      /*function createDiv()
+        {
+          var divTag = document.createElement("div");          
+          divTag.id = "div1";          
+          divTag.className ="field";          
+          divTag.innerHTML = "<label for='data2'>New Data</label> <input id='data2' name='data2' type='text' />";          
+          document.body.appendChild(divTag);
+      }
+      */
+    </script>
+  </head>
+  <body>
+
+  <div id = "create-form">
+  <%= form_tag '/widgets' do %>
+    <div class="field">
+      <%=label_tag 'type' %>
+      <%=text_field_tag 'type'%>    
+    </div>
+    <div class="field">
+      <%=label_tag 'data' %>
+      <%=text_field_tag 'data'%>
+    </div>
+    
+    <div class="actions">
+      <%= submit_tag 'Save' %>
+    </div>
+    <b>Click this button to create div element dynamically:</b>
+    <input id="btn1" type="button" value="create div" onclick="createDiv();" />
+  <% end %>
+
+  </div>
+  <body>
 </html>
 

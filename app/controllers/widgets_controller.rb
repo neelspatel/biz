@@ -7,6 +7,10 @@ class WidgetsController < ApplicationController
     @title = "Create New Widget"
     @widget = Widget.new
   end
+
+  def show
+    @widget = Widget.find(params[:id])    
+  end
   
   #creates a new turf, and stores the lat long and accuracy based on the current used values
   def create
