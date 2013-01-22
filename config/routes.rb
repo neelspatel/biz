@@ -3,5 +3,10 @@ Biz::Application.routes.draw do
 
   devise_for :merchants
 
-  root :to => "home#index"
+  #root :to => "home#index"
+  root :to => 'pages#home'
+  
+  resources :widgets, :only => [:create, :destroy]
+
+
 end

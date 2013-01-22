@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120231921) do
+ActiveRecord::Schema.define(:version => 20130122043920) do
 
   create_table "merchants", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,8 +30,26 @@ ActiveRecord::Schema.define(:version => 20130120231921) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "domain"
   end
 
   add_index "merchants", ["confirmation_token"], :name => "index_merchants_on_confirmation_token", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string "unique_cookie"
+  end
+
+  create_table "widgets", :force => true do |t|
+    t.integer  "merchant_id"
+    t.text     "data"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "widget_type"
+  end
+
+  add_index "widgets", ["merchant_id"], :name => "index_widgets_on_merchant_id"
 
 end

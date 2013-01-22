@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<div id = "create-form">
+<%= form_tag '/widgets' do %>
+  <div class="field">
+    <%=label_tag 'type' %>
+    <%=text_field_tag 'type'%>
+  </div>
+  <div class="field">
+    <%=label_tag 'data' %>
+    <%=text_field_tag 'data'%>
+  </div>  
+  <div class="field">
+    <%=label_tag 'data2' %>
+    <%=text_field_tag 'data2'%>
+  </div>  
+  <div class="actions">
+    <%= submit_tag 'Save' %>
+  </div>
+<% end %>
+
+</div>
+</html>
+

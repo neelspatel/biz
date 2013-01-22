@@ -5,6 +5,7 @@ class Merchant < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
-  # attr_accessible :title, :body
+  attr_accessible :email, :password, :password_confirmation, :name, :address, :phone_number, :domain
+  
+  has_many :widgets, :dependent => :destroy
 end
