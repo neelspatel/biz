@@ -26,6 +26,29 @@
     
   <% end %>
 
+  <%= form_tag '/items' do %>
+    <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+    <div id = "form-fields">
+      THIS IS A SLIDER QUESTION.
+      <div class="field">
+        <%=label_tag 'question' %>
+        <%=text_field_tag 'question'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'low_endpoint' %>
+        <%=text_field_tag 'low_endpoint'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'high_endpoint' %>
+        <%=text_field_tag 'high_endpoint'%>    
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Save' %>
+    </div>
+    
+  <% end %>
+
   </div>
   <body>
 </html>

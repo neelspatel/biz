@@ -1,10 +1,7 @@
 <div> We are on widget number <%= @widget.id %> which is of type <%= @widget.widget_type %> </div>
 
-<% if @widget.widget_type == "coupon" %>
-	<%= render 'items/coupon' %>
-<% elsif @widget.widget_type == "survey" %>
-	<%= render 'items/survey' %>
-<% end %>
+<% @show_type = "items/" + @widget.widget_type %>
+<%= render @show_type %>
 
 <%= render @items %>
 
