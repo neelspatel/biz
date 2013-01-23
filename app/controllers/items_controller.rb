@@ -41,6 +41,21 @@ class ItemsController < ApplicationController
 	    end
 	end
 
+	def destroy
+	    @item = Item.find(params[:id])
+	    
+	    @widget = Widget.find_by_id(@item.widget_id)
+	    
+	    
+	    if @item.destroy
+	      flash[:success] = "Item destroyed!" 
+	      redirect_to(@widget)     
+	    else
+	      flash[:error] = "Sorry, item not destroyed"
+	    end
+	    
+	  end
+
 	def show
 		@item = Item.find(params[:id])
 	end
