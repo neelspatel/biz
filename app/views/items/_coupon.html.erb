@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" language="javascript">          
+    </script>
+  </head>
+  <body>
+
+  <div id = "create-form">
+  <%= form_tag '/items' do %>
+    <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+    <div id = "form-fields">
+      THIS BE A COUPON YO
+      <div class="field">
+        <%=label_tag 'item' %>
+        <%=text_field_tag 'item'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'description' %>
+        <%=text_field_tag 'description'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'original_price' %>
+        <%=text_field_tag 'original_price'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'new_price' %>
+        <%=text_field_tag 'new_price'%>    
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Save' %>
+    </div>
+    
+  <% end %>
+
+  </div>
+  <body>
+</html>
+

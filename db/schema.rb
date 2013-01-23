@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122043920) do
+ActiveRecord::Schema.define(:version => 20130122215006) do
+
+  create_table "items", :force => true do |t|
+    t.integer  "widget_id"
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "items", ["widget_id"], :name => "index_items_on_widget_id"
 
   create_table "merchants", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -44,10 +53,10 @@ ActiveRecord::Schema.define(:version => 20130122043920) do
 
   create_table "widgets", :force => true do |t|
     t.integer  "merchant_id"
-    t.text     "data"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "widget_type"
+    t.integer  "item_id"
   end
 
   add_index "widgets", ["merchant_id"], :name => "index_widgets_on_merchant_id"

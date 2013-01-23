@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" language="javascript">
+    </script>
+  </head>
+  <body>
+
+  <div id = "create-form">
+  <%= form_tag '/items' do %>
+    <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+    <div id = "form-fields">
+      THIS IS A SURVEY BITCH. SO SEPERATE YOUR POSSIBLE ANSWERS WITH COMMAS BITCH.
+      <div class="field">
+        <%=label_tag 'question' %>
+        <%=text_field_tag 'question'%>    
+      </div>
+      <div class="field">
+        <%=label_tag 'answers' %>
+        <%=text_field_tag 'answers'%>    
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Save' %>
+    </div>
+    
+  <% end %>
+
+  </div>
+  <body>
+</html>
+

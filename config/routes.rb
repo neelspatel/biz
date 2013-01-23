@@ -7,6 +7,7 @@ Biz::Application.routes.draw do
   root :to => 'pages#home'
   
   resources :widgets, :only => [:create, :destroy, :show]
+  resources :items, :only => [:create, :destroy, :show]
 
 
 end

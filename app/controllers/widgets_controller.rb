@@ -9,27 +9,16 @@ class WidgetsController < ApplicationController
   end
 
   def show
-    @widget = Widget.find(params[:id])    
+    @widget = Widget.find(params[:id]) 
+    @items = @widget.items
+    @item = Item.new
+   
   end
   
   #creates a new turf, and stores the lat long and accuracy based on the current used values
   def create
-    #@parameters = { "type" => params[:type], "data" => params[:data]}
-    @parameters = params
-
-    #saves type and removes irrelevant shit from params
-    @type = @parameters[:type]
-    @parameters.delete("type")
-    @parameters.delete("utf8")
-    @parameters.delete("authenticity_token")
-    @parameters.delete("commit")
-    @parameters.delete("action")
-    @parameters.delete("controller")
-
-    #turns it into a json shit thing
-    @json = ActiveSupport::JSON.encode(@parameters)
-
-    @widget = current_merchant.widgets.build({"widget_type" => @type, "data" => @json})
+    @type = params[:type][:value].to_s
+    @widget = current_merchant.widgets.build("widget_type" => @type.to_s)
         
     if @widget.save
       # Handle a successful save.

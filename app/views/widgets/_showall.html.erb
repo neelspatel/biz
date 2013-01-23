@@ -1,0 +1,7 @@
+<div> Showing all widgets now... </div>
+
+<% @widgets = Widget.find(:all, :conditions => {:merchant_id => current_merchant.id}) %>
+
+<% @widgets.reverse.each do |widget| %>
+	<div> <%= link_to "The fuckin widget has number #{widget.id} and is of type #{widget.widget_type}", widget_path(widget) %> </div>
+<% end %>
