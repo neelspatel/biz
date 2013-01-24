@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
   	end
 
 	def create		
-        @chat = Chat.new({:user_id => params[:user_id][:value], :merchant_id => params[:merchant_id], :content => params[:content], :from => params[:from]})
+        @chat = Chat.new({:user_id => params[:user_id][:value], :merchant_id => params[:merchant_id][:value], :content => params[:content], :from => params[:from][:value]})
 
         if @chat.save
 	      # Handle a successful save.
@@ -27,5 +27,10 @@ class ChatsController < ApplicationController
 
 	def show
 		@chat = Chat.find(params[:id])
+
+		#if the user is a merchant, then add the chat to the params hash
+		if merchant_signed_in?
+			params[:current_chat_user_id] = @chat.user_id
+		end
 	end
 end

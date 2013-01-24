@@ -1,0 +1,7 @@
+<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => params[:current_chat_user_id]}) %>
+
+<% @chats.reverse.each do |chat| %>
+	<div> <%="The chat  has number #{chat.id} and is  #{chat.inspect}"%> </div>
+<% end %>
+
+<%= render 'businesschat' %>

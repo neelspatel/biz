@@ -6,9 +6,9 @@
 
   <div id = "create-form">
   <%= form_tag '/chats' do %>
-    <div><%= hidden_field(:merchant_id, :value, :value => current_user.current_merchant_id) %></div>
-    <div><%= hidden_field(:user_id, :value, :value => current_user.id) %></div>
-    <div><%= hidden_field(:from, :value, :value => "user") %></div>
+    <div><%= hidden_field(:merchant_id, :value, :value => current_merchant.id) %></div>
+    <div><%= hidden_field(:user_id, :value, :value => params[:current_chat_user_id]) %></div>
+    <div><%= hidden_field(:from, :value, :value => "merchant") %></div>
 
     <div id = "form-fields">
       THIS BE A CHAT YO

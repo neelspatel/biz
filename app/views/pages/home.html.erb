@@ -4,10 +4,12 @@
 <% if merchant_signed_in? %>
   <div>Signed in as... <%= current_merchant.email %></div>
   <div><a href = "/merchants/sign_out"> Go here </a> to sign out. </div>
+  <%= render 'chats/showallforbusiness' %>  
   <% @widget = Widget.new %>
   <%= render 'widgets/new' %>
   <%= render 'widgets/showall' %>  
 <% else %>
-	<div>No merchant signed in, <a href = "/merchants/sign_up"> go here to create an account</a> or <a href = "/merchants/sign_in"> here to log in to your account.</a> </div>
+	<div>No merchant signed in, <a href = "/merchants/sign_up"> go here to create an account</a> or <a href = "/merchants/sign_in"> here to log in to your account.</a> </div>    
+	<%= render 'chats/showallforuser' %>  
 	<%= render 'chats/userchat' %>  
 <% end %>

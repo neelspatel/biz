@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @user.save
   end
   
   def create
-    @user = User.new(session[:biz_recognized_cookie_user])
-    @user.current_merchant_id = 1
-    @user.save
+    @value = 1
+
+    @user = User.new({:unique_cookie => cookies[:biz_recognized_cookie_user], :current_merchant_id => @value})
+    #@user.current_merchant_id = 1
+    @user.save!
   end
 end
