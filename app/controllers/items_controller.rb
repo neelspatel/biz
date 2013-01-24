@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+	
 	respond_to :html, :js
+	
 	def new
 	      @item = Item.new(params[:item])
   	end
