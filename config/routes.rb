@@ -8,6 +8,7 @@ Biz::Application.routes.draw do
   
   resources :widgets, :only => [:create, :destroy, :show]
   resources :items, :only => [:create, :destroy, :show]
+  resources :chats, :only => [:create, :show]
 
 
 end

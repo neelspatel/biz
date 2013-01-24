@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(session[:biz_recognized_cookie_user])
+    @user.current_merchant_id = 1
     @user.save
   end
 end
