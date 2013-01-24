@@ -1,0 +1,29 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <nav>
+        <%= link_to "ODABA", root_path, :class => 'brand' %>
+        <ul class="nav pull-right">         
+          <% if merchant_signed_in? %>
+            <li>
+            <%= link_to("Welcome, #{current_merchant.name}", edit_merchant_registration_path) %>
+            </li>
+          <% else %>
+            <li>
+            <%= link_to('Sign up', new_merchant_registration_path)  %>
+            </li>
+          <% end %>
+          <% if merchant_signed_in? %>
+            <li>
+            <%= link_to('Logout', "merchants/sign_out") %>
+            </li>
+          <% else %>
+            <li>
+            <%= link_to('Login', new_merchant_session_path)  %>
+            </li>
+          <% end %>          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

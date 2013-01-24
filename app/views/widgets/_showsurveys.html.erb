@@ -1,0 +1,22 @@
+<% @surveys = Widget.find(:all, :conditions => {:merchant_id => current_merchant.id, :widget_type => "survey"}) %>
+
+<% if @surveys.length > 0 %>
+	<% @surveys.reverse.each do |survey| %>
+		<div> <%= link_to "The fuckin survey has number #{survey.id} and is of type #{survey.widget_type}. It has #{survey.items.count} items.", widget_path(survey) %> </div>
+	<% end %>
+<% else %>
+	<div id = "create-form">
+  <%= form_tag '/widgets' do %>
+    <div id = "form-fields">
+      <div class="field">
+        <%= hidden_field_tag "type[value]", "survey" %>  
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Your survey is empty, add questions now!', :class => "btn btn-link" %>
+    </div>
+    
+  <% end %>
+
+  </div>
+<% end %>

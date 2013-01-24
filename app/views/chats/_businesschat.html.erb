@@ -11,14 +11,12 @@
     <div><%= hidden_field(:from, :value, :value => "merchant") %></div>
 
     <div id = "form-fields">
-      THIS BE A CHAT YO
       <div class="field">
-        <%=label_tag 'content' %>
         <%=text_field_tag 'content'%>    
       </div>      
     </div>
     <div class="actions">
-      <%= submit_tag 'Save' %>
+      <%= submit_tag 'Send' %>
     </div>
     
   <% end %>

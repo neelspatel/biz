@@ -3,5 +3,5 @@
 <% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}) %>
 
 <% @chats.reverse.each do |chat| %>
-	<div> <%= link_to "The chat  has number #{chat.id} and is  #{chat.inspect}", chat_path(chat) %> </div>
+	<div> <%= link_to "Chat #{chat.id}: from user #{chat.user_id}", chat_path(chat) %> </div>
 <% end %>

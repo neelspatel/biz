@@ -1,7 +1,14 @@
 <% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => params[:current_chat_user_id]}) %>
 
-<% @chats.reverse.each do |chat| %>
-	<div> <%="The chat  has number #{chat.id} and is  #{chat.inspect}"%> </div>
-<% end %>
+<script>
+	$(document).ready(function() {
+		$("#chats").scrollTop($("#chats")[0].scrollHeight);
+	});
+</script>
 
+<div id = "chats" style = "height:100px; overflow:auto;">
+	<% @chats.each do |chat| %>
+		<div> <strong> <%= "#{chat.from.capitalize}: " %> </strong> <%= "#{chat.content}"%> </div>
+	<% end %>
+</div>
 <%= render 'businesschat' %>

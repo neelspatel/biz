@@ -2,6 +2,6 @@
 
 <% @chats = Chat.find(:all, :conditions => {:user_id => current_user.id}) %>
 
-<% @chats.reverse.each do |chat| %>
-	<div> <%= link_to "The chat  has number #{chat.id} and is  #{chat.inspect}", chat_path(chat) %> </div>
+<% @chats.each do |chat| %>
+	<div> <strong> <%= "#{chat.from.capitalize}: " %> </strong> <%= "#{chat.content}"%> </div>
 <% end %>

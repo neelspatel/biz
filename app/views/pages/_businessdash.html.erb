@@ -1,0 +1,22 @@
+<head>
+</head>
+
+<body>
+	<div id = "dashboard" style = "height:400px;">
+		<h1> This is your dashboard, <%= current_merchant.name %> </h1>	
+
+		<h2> Manage your widgets </h2>
+		<h3>Your coupons </h3>
+			<div><%= render 'widgets/showcoupons' %></div>
+		<h3>Your surveys </h3>
+			<div><%= render 'widgets/showsurveys' %></div>
+
+	</div>
+	<h2> Chat will go here </h2>
+	<div class = "row-fluid">
+		<div class="hero-unit span4" style = "height:300px; overflow:auto;">
+			<%= render 'chats/showallforbusiness' %>
+		</div>
+  		<div class="hero-unit span8">...</div>
+	</div>
+</body>

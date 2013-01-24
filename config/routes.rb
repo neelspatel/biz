@@ -1,5 +1,6 @@
 Biz::Application.routes.draw do
   get "pages/home"
+  get "pages/useremulate"
 
   devise_for :merchants
 
@@ -9,6 +10,7 @@ Biz::Application.routes.draw do
   resources :widgets, :only => [:create, :destroy, :show]
   resources :items, :only => [:create, :destroy, :show]
   resources :chats, :only => [:create, :show]
+  resources :answers, :only => [:create, :show, :destroy]
 
 
 end

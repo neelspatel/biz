@@ -1,0 +1,22 @@
+<% @coupons = Widget.find(:all, :conditions => {:merchant_id => current_merchant.id, :widget_type => "coupon"}) %>
+
+<% if @coupons.length > 0 %>
+	<% @coupons.reverse.each do |coupon| %>
+		<div> <%= link_to "The fuckin coupon has number #{coupon.id} and is of type #{coupon.widget_type}. It has #{coupon.items.count} items.", widget_path(coupon) %> </div>
+	<% end %>
+<% else %>
+	<div id = "create-form">
+  <%= form_tag '/widgets' do %>
+    <div id = "form-fields">
+      <div class="field">
+        <%= hidden_field_tag "type[value]", "coupon" %>  
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Your coupon list is empty, add items now!', :class => "btn btn-link" %>
+    </div>
+    
+  <% end %>
+
+  </div>
+<% end %>

@@ -9,7 +9,13 @@ class ChatsController < ApplicationController
         if @chat.save
 	      # Handle a successful save.
 	      flash[:success] = "Thanks for creating the chat!"
-	      redirect_to "/"
+	      
+	      if merchant_signed_in?
+	      	#redirect_to @chat
+	      	redirect_to @chat
+	      else
+	      	redirect_to "/pages/useremulate"
+      	  end
 	    else
 	      #we should definitely fix this long term - this should be in a partial, but i can't get it to work right there
 	      initial_error = "Sorry, errors prohibited this widget from being created, including:"
