@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+	
+	respond_to :html, :js
+	
 	def new
-      @item = Item.new(params[:item])
+	      @item = Item.new(params[:item])
   	end
 
 	def create
@@ -24,12 +27,13 @@ class ItemsController < ApplicationController
         if @item.save
 	      # Handle a successful save.
 	      flash[:success] = "Thanks for creating the item!"
-	      redirect_to Widget.find(@widget_id)
+	      respond_with (@item)
+	      #redirect_to Widget.find(@widget_id)
 	    else
-	      @title = "Create New Widget"      
+	      @title = "Create New Item"      
 
 	      #we should definitely fix this long term - this should be in a partial, but i can't get it to work right there
-	      initial_error = "Sorry, errors prohibited this widget from being created, including:"
+	      initial_error = "Sorry, errors prohibited this item from being created, including:"
 	      errors = [initial_error]
 
 	      if @item.errors.any?    
@@ -42,6 +46,7 @@ class ItemsController < ApplicationController
 	end
 
 	def destroy
+		# find the item, then find the widget - 2 database queries fix in future
 	    @item = Item.find(params[:id])
 	    
 	    @widget = Widget.find_by_id(@item.widget_id)

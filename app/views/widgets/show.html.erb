@@ -3,6 +3,8 @@
 <% @show_type = "items/" + @widget.widget_type %>
 <%= render @show_type %>
 
-<%= render @items %>
+<div id = "items">
+	<%= render @items %>
+</div>
 
 <div> <a href = "/"> Click here to go back home.</a> </div>

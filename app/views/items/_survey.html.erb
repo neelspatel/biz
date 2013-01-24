@@ -7,7 +7,7 @@
   <body>
 
   <div id = "create-form">
-  <%= form_tag '/items' do %>
+  <%= form_tag '/items', :remote => true do %>
     <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
     <div id = "form-fields">
       THIS IS A SURVEY BITCH. SO SEPERATE YOUR POSSIBLE ANSWERS WITH COMMAS BITCH.
@@ -26,7 +26,7 @@
     
   <% end %>
 
-  <%= form_tag '/items' do %>
+  <%= form_tag '/items', :remote => true do %>
     <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
     <div id = "form-fields">
       THIS IS A SLIDER QUESTION.
