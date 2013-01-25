@@ -1,6 +1,7 @@
 Biz::Application.routes.draw do
   get "pages/home"
   get "pages/useremulate"
+  
 
   devise_for :merchants
 

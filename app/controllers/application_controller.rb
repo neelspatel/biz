@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery
 	before_filter :instantiateUser
 	helper_method :current_user
+	helper :all
 
 
 	#creates a user, including cookie verification or cookie creation
@@ -33,5 +34,10 @@ class ApplicationController < ActionController::Base
 	def current_user
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
+
+	def mobile_device?
+      request.user_agent =~ /Mobile|webOS/
+    end
+    helper_method :mobile_device?
 
 end

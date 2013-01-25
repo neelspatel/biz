@@ -15,6 +15,8 @@ gem 'geocoder'
 gem 'paperclip', '2.7.0'
 gem 'devise'
 gem 'tlsmail'
+gem 'jquery_mobile_rails'
+
 
 
 group :development do

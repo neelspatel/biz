@@ -1,5 +1,10 @@
 <% if merchant_signed_in? %>
+	
   <%= render 'pages/businessdash' %>    
-<% else %>
+<% elsif mobile_device? %>
+	
+	<%= render 'pages/mobilehome' %>    
+<% else %>  
+	
   <%= render 'pages/businesshome' %>    
 <% end %>

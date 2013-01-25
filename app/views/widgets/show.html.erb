@@ -1,10 +1,66 @@
-<div> We are on widget number <%= @widget.id %> which is of type <%= @widget.widget_type %> </div>
+<% if @widget.widget_type == "coupon" %>
 
-<% @show_type = "items/" + @widget.widget_type %>
-<%= render @show_type %>
+	<% if !mobile_device? %>
+		<% @show_type = "items/" + @widget.widget_type %>
+		<%= render @show_type %>
 
-<div id = "items">
-	<%= render @items %>
-</div>
+		<% @items.each do |item| %>
+			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
+			<div style = "margin-bottom:20px;">
 
-<div> <a href = "/"> Click here to go back home.</a> </div>
+				<div>
+					<% @percent_off = (@decoded["original_price"].to_f - @decoded["new_price"].to_f)/@decoded["original_price"].to_f * 100 %>
+					<%= @percent_off %>% off! 
+					<strong><%= @decoded["item"] %></strong>: <%= @decoded["description"] %>
+				</div>
+				<div>
+					Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!
+				</div>
+			</div>
+		<% end %>
+
+		<div> <a href = "/"> Click here to go back home.</a> </div>
+	<% else %>
+		<% @items.each do |item| %>
+			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
+			<div style = "margin-bottom:20px;">
+				<% @percent_off = (@decoded["original_price"].to_f - @decoded["new_price"].to_f)/@decoded["original_price"].to_f * 100 %>
+				<div data-role="collapsible">
+				   <h3><%= @percent_off %>% off on <%= @decoded["item"] %>!</h3>
+				   <p><%= @decoded["description"] %>. Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!</p>
+				</div>
+			</div>
+		<% end %>
+		<%= render "pages/mobilechatbutton" %>
+
+	<% end %>
+
+<% elsif @widget.widget_type == "survey" %>
+	<% if !mobile_device? %>
+		<% @show_type = "items/" + @widget.widget_type %>
+		<%= render @show_type %>
+
+		<% @items.each do |item| %>
+			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
+			<div style = "margin-bottom:20px;">
+
+				<div>					
+					<strong><%= @decoded %></strong>
+				</div>
+			</div>
+		<% end %>
+
+		<div> <a href = "/"> Click here to go back home.</a> </div>
+	<% else %>
+		<% @items.each do |item| %>
+			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
+			<div style = "margin-bottom:20px;">
+				<div>					
+					<strong><%= @decoded %></strong>
+				</div>
+			</div>
+		<% end %>
+		<%= render "pages/mobilechatbutton" %>
+
+	<% end %>
+<% end %>

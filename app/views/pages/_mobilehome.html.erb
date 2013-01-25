@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />                             
+    </head>
+
+<body style = "margin:50px;">
+	<div data-role="page" data-theme="c" data-content-theme="a">
+
+		<div data-role="header"> 
+			<h1>ADABA!</h1> 
+		</div>
+		<% @current_mobile_merchant = Merchant.find(current_user.current_merchant_id) %>
+		<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>
+		<% @current_mobile_survey = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"})%>
+		<h2>Thanks for coming to <%= @current_mobile_merchant.name %> </h2>
+		<ul data-role="listview">
+			<% @coupon_count = Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}).items.count %>
+			<li data-icon="star"><a href=  <%= widget_path(@current_mobile_coupon) %> >View current coupons <div class = "ui-li-count" ><%= @coupon_count %></div></a></li>
+			<li data-icon="bars"><a href=  <%= widget_path(@current_mobile_survey) %> >Take a quick survey</a></li>	
+		</ul>
+		<%= render "pages/mobilechatbutton" %>
+
+	</div>
+	  
+</body>

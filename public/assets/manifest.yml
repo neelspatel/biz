@@ -1,10 +1,16 @@
 ---
+mall1.jpg: mall1-d8b1d83d0a41ad9894e2c04cda688581.jpg
+mall1/index.jpg: mall1-d8b1d83d0a41ad9894e2c04cda688581.jpg
+mall2.jpg: mall2-58c549d35d3fc712ae686d1e235f0722.jpg
+mall2/index.jpg: mall2-58c549d35d3fc712ae686d1e235f0722.jpg
+mall3.jpg: mall3-b00d70a39199bcc040fbde2e69cf2153.jpg
+mall3/index.jpg: mall3-b00d70a39199bcc040fbde2e69cf2153.jpg
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-23e0dc4aeeff30c6e2327681045066a1.js
-application/index.js: application-23e0dc4aeeff30c6e2327681045066a1.js
-application.css: application-1b13569e9620782f423d4cd3ce931750.css
-application/index.css: application-1b13569e9620782f423d4cd3ce931750.css
+application.js: application-0189262ba1bf62484d79a6c1fd509fa0.js
+application/index.js: application-0189262ba1bf62484d79a6c1fd509fa0.js
+application.css: application-26743b0cc52dbabe20d27195a5ab2a40.css
+application/index.css: application-26743b0cc52dbabe20d27195a5ab2a40.css
 twitter/bootstrap/glyphicons-halflings-white.png: twitter/bootstrap/glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 twitter/bootstrap/glyphicons-halflings-white/index.png: twitter/bootstrap/glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 twitter/bootstrap/glyphicons-halflings.png: twitter/bootstrap/glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png

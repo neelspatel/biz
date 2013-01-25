@@ -1,0 +1,10 @@
+<div> We are on widget number <%= @widget.id %> which is of type <%= @widget.widget_type %> </div>
+
+<% @show_type = "items/" + @widget.widget_type %>
+<%= render @show_type %>
+
+<div id = "items">
+	<%= render @items %>
+</div>
+
+<div> <a href = "/"> Click here to go back home.</a> </div>
