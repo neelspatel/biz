@@ -1,4 +1,12 @@
 class ChatsController < ApplicationController
+	
+	respond_to :html, :js
+
+	def index
+	@chats = Chat.find(:all, :conditions => {:merchant_id => params[:merchant_id][:value], :created_at  })
+	respond_with (@chats)
+	end
+
 	def new
       @chat = Chat.new(params[:chat])
   	end
@@ -32,11 +40,18 @@ class ChatsController < ApplicationController
 	
 
 	def show
+
 		@chat = Chat.find(params[:id])
 
 		#if the user is a merchant, then add the chat to the params hash
 		if merchant_signed_in?
 			params[:current_chat_user_id] = @chat.user_id
 		end
+
+		# find all of the chats that belong to this conversation
+		@chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => params[:current_chat_user_id]})
+	
+		respond_with @chats
+	
 	end
 end

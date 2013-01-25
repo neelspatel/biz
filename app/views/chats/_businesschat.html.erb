@@ -5,7 +5,7 @@
   <body>
 
   <div id = "create-form">
-  <%= form_tag '/chats' do %>
+  <%= form_tag '/chats', :remote => true do %>
     <div><%= hidden_field(:merchant_id, :value, :value => current_merchant.id) %></div>
     <div><%= hidden_field(:user_id, :value, :value => params[:current_chat_user_id]) %></div>
     <div><%= hidden_field(:from, :value, :value => "merchant") %></div>
