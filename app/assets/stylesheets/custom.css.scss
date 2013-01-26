@@ -11,6 +11,12 @@ body {
     
 }
 
+body#homepagebackground {
+  padding-top: 60px;
+  background: url('gradient_squares.png') center center fixed;
+  background-color: #94C5EB
+}
+
 section {
   overflow: auto;
 }
