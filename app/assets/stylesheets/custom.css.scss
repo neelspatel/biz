@@ -4,10 +4,16 @@
 
 html {
   overflow-y: scroll;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
   padding-top: 60px;
+  background: url('gradient_squares.png') center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 section {
@@ -71,7 +77,7 @@ p {
   height:450px; 
   padding-top:5px; 
   padding-bottom:5px; 
-  margin:0px auto 50px auto;
+  margin:0px auto 0px auto;
   
   background: url('blurred.jpg') no-repeat center center;
   -webkit-background-size: cover;
@@ -89,8 +95,13 @@ z-index:1;
 }
 .over
 {
-position:absolute;
-left:500px;
-top:200px;
+position:relative;
+left:660px;
+top:70px;
 z-index:2;
+}
+
+.span-one-third-well well{
+height: 130 px;
+width: 260 px;
 }
