@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+  </head>
+  <body>
+
+  <div id = "create-form">
+  <%= form_tag '/answers' , :remote => true do %>
+    <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+    <div id = "form-fields">
+      <div class="field">
+        <%=label_tag 'data' %>
+        <%=text_field_tag 'data'%>    
+      </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Save' %>
+    </div>
+    
+  <% end %>
+
+  </div>
+  <body>
+</html>
+

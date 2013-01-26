@@ -1,3 +1,10 @@
+<style type='text/css'>
+  .slider-label {
+    position:fixed;
+  }
+  </style>
+
+
 <% if @widget.widget_type == "coupon" %>
 
 	<% if !mobile_device? %>
@@ -43,10 +50,22 @@
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
 			<div style = "margin-bottom:20px;">
+				<% @question = @decoded["question"]%> 
+				<% if @decoded.has_key?("answers") %>
+					
+					<% @answers = @decoded["answers"].split(',') %>
+					<strong> <%= @question %> </strong>
+					
+					<% @answers.each do |answer| %>
+						<div style = "margin-left:20px;"><%= answer %> </div>
+					<% end %>
 
-				<div>					
-					<strong><%= @decoded %></strong>
-				</div>
+				<% elsif @decoded.has_key?("low_endpoint") %>
+
+					<strong> <%= @question %> </strong>
+					<div style = "margin-left:20px;">Ranges from <strong> <%= @decoded["low_endpoint"] %> </strong> to <strong> <%= @decoded["high_endpoint"] %> </strong> </div>
+
+				<% end %>
 			</div>
 		<% end %>
 
@@ -54,12 +73,56 @@
 	<% else %>
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
-			<div style = "margin-bottom:20px;">
-				<div>					
-					<strong><%= @decoded %></strong>
-				</div>
+			<div style = "margin-bottom:20px;" class = "survey-item">
+				<% @question = @decoded["question"]%> 
+				<% if @decoded.has_key?("answers") %>
+					
+					<% @answers = @decoded["answers"].split(',') %>
+					<strong> <%= @question %> </strong>
+					
+					<% @answer = Answer.new %>
+					<%= simple_form_for @answer do |f| %>
+					    <div><%= hidden_field(:question_type, :value, :value => "multiple-choice") %></div>
+  						<div><%= hidden_field(:user_id, :value, :value => current_user.id) %></div> 
+					    <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+					    <div><%= hidden_field(:item_id_value, :value, :value => item.id) %></div>
+
+
+						<%= f.input :content, :label => "",
+						:collection => @answers, 						
+						:as => :radio, :name => "mc", :class => "btn btn-warning btn-mini"%>
+						<%= f.button :submit%>
+
+					<% end %>
+					
+				<% elsif @decoded.has_key?("low_endpoint") %>
+					
+
+					<strong> <%= @question %> </strong>
+					<div style = "margin-left:20px;">Ranges from <strong> <%= @decoded["low_endpoint"] %> </strong> to <strong> <%= @decoded["high_endpoint"] %> </strong> </div>
+					<div data-role="fieldcontain">
+				    <label for="slider">Input slider: </label>
+  					<%= simple_form_for @answer do |f| %>
+  						<div><%= hidden_field(:user_id, :value, :value => current_user.id) %></div> 
+  						<div><%= hidden_field(:question_type, :value, :value => "slider") %></div>
+  						<div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
+					    <div><%= hidden_field(:item_id_value, :value, :value => item.id) %></div>
+
+					    <input type="hidden" name="slider-hidden-x" value="0" />
+					    <input type="range" name="slider" id="slider" value="0" min="0" max="100"  />
+				      
+				     	<%= f.button :submit %>
+					<% end %> 
+
+			        </div>
+
+
+				<% end %>
 			</div>
+
 		<% end %>
+
+        <button id="submit_all">Submit All Shit</button>
 		<%= render "pages/mobilechatbutton" %>
 
 	<% end %>

@@ -16,6 +16,8 @@ gem 'paperclip', '2.7.0'
 gem 'devise'
 gem 'tlsmail'
 gem 'jquery_mobile_rails'
+gem 'simple_form'
+gem 'nested_form'
 
 
 
