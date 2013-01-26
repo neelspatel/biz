@@ -4,10 +4,16 @@
 
 html {
   overflow-y: scroll;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
-  padding-top: 00px;
+  padding-top: 60px;
+  background: url('gradient_squares.png') center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 section {
@@ -82,3 +88,45 @@ p {
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .alert a {color:#8a1f11;}
+
+.content {
+  background-color: #eee;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#homediv {
+  position:relative;
+
+  height:450px; 
+  padding-top:5px; 
+  padding-bottom:5px; 
+  margin:0px auto 0px auto;
+  
+  background: url('blurred.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.under
+{
+position:relative;
+left:0px;
+top:0px;
+z-index:1;
+}
+.over
+{
+position:relative;
+left:660px;
+top:70px;
+z-index:2;
+}

@@ -1,7 +1,13 @@
+<div id = "merchant_id" data-merchant = "<%= current_merchant.id %>"> </div>
 <div> Showing all chats now... </div>
 
-<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}) %>
+<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %>
+<% @counts = Chat.count(:all, :group => "user_id") %>
 
 <% @chats.reverse.each do |chat| %>
-	<div> <%= link_to "Chat #{chat.id}: from user #{chat.user_id}", chat_path(chat) %> </div>
+
+	<div class = "conversation" data-id = <%= chat.user_id %> data-count = <%= @counts[chat.user_id] %>  data-merchant = <%= chat.merchant_id %> > 
+		<%= link_to "Conversation from user #{chat.user_id}", chat, :remote => true %> 
+	</div>
+
 <% end %>
