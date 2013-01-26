@@ -24,7 +24,7 @@
   <body>  
     <div class="container-fluid">
       <% if !mobile_device? %>
-        <% render 'layouts/header' %>
+        <%= render 'layouts/header' %>
       <% end %>
       <section class="round">
         <% flash.each do |key, value| %>
