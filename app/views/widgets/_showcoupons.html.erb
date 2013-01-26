@@ -1,22 +1,38 @@
-<% @coupons = Widget.find(:all, :conditions => {:merchant_id => current_merchant.id, :widget_type => "coupon"}) %>
+<% @coupon_list = Widget.find(:last, :conditions => {:merchant_id => current_merchant.id, :widget_type => "coupon"}) %>
 
-<% if @coupons.length > 0 %>
-	<% @coupons.reverse.each do |coupon| %>
-		<div> <%= link_to "The fuckin coupon has number #{coupon.id} and is of type #{coupon.widget_type}. It has #{coupon.items.count} items.", widget_path(coupon) %> </div>
-	<% end %>
-<% else %>
-	<div id = "create-form">
-  <%= form_tag '/widgets' do %>
-    <div id = "form-fields">
-      <div class="field">
-        <%= hidden_field_tag "type[value]", "coupon" %>  
+<li>  
+  <div class="article-post">   
+  
+    <% if @coupon_list.items.length > 0 %>
+    		<span class="user-info">You currently have <%=@coupon_list.items.count %> coupons active. </span>        
+    <% else %>
+    	<div id = "create-form">
+      <%= form_tag '/widgets' do %>
+        <div id = "form-fields">
+          <div class="field">
+            <%= hidden_field_tag "type[value]", "coupon" %>  
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Your coupon list is empty, add items now!', :class => "btn btn-link" %>
+        </div>
+        
+      <% end %>
+
       </div>
-    </div>
-    <div class="actions">
-      <%= submit_tag 'Your coupon list is empty, add items now!', :class => "btn btn-link" %>
-    </div>
-    
-  <% end %>
-
+    <% end %>
   </div>
+</li>
+
+<% @coupon_list.items.each do |item| %>
+  <% @decoded = ActiveSupport::JSON.decode(item.data) %>
+
+  <li>  
+    <div class="article-post">
+      <span class="user-info">Created on <%=item.created_at %> </span>
+      <p>
+        <a href="#"><%=@decoded["item"] %>: <%=@decoded["description"] %> </a>
+      Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!</p>    
+    </div>
+  </li>
 <% end %>

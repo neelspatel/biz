@@ -18,6 +18,7 @@ gem 'tlsmail'
 gem 'jquery_mobile_rails'
 gem 'simple_form'
 gem 'nested_form'
+gem "font-awesome-rails"
 
 
 

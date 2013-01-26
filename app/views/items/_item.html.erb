@@ -2,3 +2,13 @@
 	Item belongs to widget number <%= item.widget_id %> and has data <%= item.data%>. 
 	<%= link_to "Delete item", item, :method=>:delete, :confirm=>"Are you sure?", :style => "font-style:italic;" %> 
 </div>
+
+<li>	
+	<div class="article-post">
+		<span class="user-info">Created on <%=item.created_at %> </span>
+		<p>
+			<a href="#"><%=item.data %></a>
+		</p>
+		<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
+	</div>
+</li>

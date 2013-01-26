@@ -15,13 +15,15 @@
       <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
       <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>    
       <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+      <%= stylesheet_link_tag 'unicorn.main', :media => 'screen' %>
+      <%= stylesheet_link_tag 'unicorn.grey', :media => 'screen', :class => "skin-color" %>    
     <% end %>  
   </head>
   
   <body>  
     <div class="container-fluid">
       <% if !mobile_device? %>
-        <%= render 'layouts/header' %>
+        <% render 'layouts/header' %>
       <% end %>
       <section class="round">
         <% flash.each do |key, value| %>
@@ -30,11 +32,6 @@
         <%= yield %>
       </section>
     </div>
-
-	<div id="side-tabs">
-		<a class="support" href="mailto:npatel@college.harvard.edu?subject=Feedback
-	&body=Hey, just wanted to give you some quick thoughts on the site:"></a>
-	</div>
         
   </body>
 </html>
