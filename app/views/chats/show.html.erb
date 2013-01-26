@@ -4,9 +4,8 @@
 	});
 </script>
 
-<div style = "height:100px; overflow:auto;">
+<div style = "height:500px; overflow:auto;">
 	<% @chats.each do |chat| %>
 		<div> <strong> <%= "in show.html.erb #{chat.from.capitalize}: " %> </strong> <%= "#{chat.content}"%> </div>
 	<% end %>
 </div>
-<%= render 'businesschat' %>

@@ -1,13 +1,50 @@
-<div id = "merchant_id" data-merchant = "<%= current_merchant.id %>"> </div>
-<div> Showing all chats now... </div>
 
-<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %>
-<% @counts = Chat.count(:all, :group => "user_id") %>
 
-<% @chats.reverse.each do |chat| %>
-
-	<div class = "conversation" data-id = <%= chat.user_id %> data-count = <%= @counts[chat.user_id] %>  data-merchant = <%= chat.merchant_id %> > 
-		<%= link_to "Conversation from user #{chat.user_id}", chat, :remote => true %> 
+<div class="widget-box widget-chat">
+	<div class="widget-title">
+		<span class="icon">
+			<i class="icon-comment"></i>
+		</span>
+		<h5>Support chat</h5>
 	</div>
+	<div class="widget-content nopadding">
+		<div class="chat-content panel-left">                   
+		   <div class="chat-messages" id="chat-messages">
+				<div id="chat-messages-inner">
+					<div id = "chats_container" class="hero-unit span8" style = "height:300px; padding: 0 0 0 0;">
 
-<% end %>
+					</div>
+				</div>
+		   </div>									
+		   <div class="chat-message well">
+				<button class="btn btn-success">Send</button>  
+				<span class="input-box">
+					<%= render 'chats/businesschat' %>
+				</span>										                  
+		   </div>                   
+		</div>
+		<div class="chat-users panel-right">
+			<div class="panel-title"><h5>Online Users</h5></div>
+			<div class="panel-content nopadding">
+				<ul class="contact-list">					
+					
+					<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %>
+					<% @counts = Chat.count(:all, :group => "user_id") %>
+
+					<% @chats.reverse.each do |chat| %>
+
+						<div class = "conversation" data-id = <%= chat.user_id %> data-count = <%= @counts[chat.user_id] %>  data-merchant = <%= chat.merchant_id %> > 
+							<% @id = "user-" + chat.user_id.to_s %>
+							<li id = <%@id%> > <%= link_to "Conversation from user #{chat.user_id}", chat, :remote => true %>  <span>User number <%= chat.user_id %></span></li>
+
+							 
+						</div>
+
+					<% end %>
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
