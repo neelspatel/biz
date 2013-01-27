@@ -8,25 +8,59 @@
 <% if @widget.widget_type == "coupon" %>
 
 	<% if !mobile_device? %>
-		<% @show_type = "items/" + @widget.widget_type %>
-		<%= render @show_type %>
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+			</head>
+			<body>							
+				<div id="header">
+					<h1 style = "color:#DEA;">ADABA</h1>		
+				</div>		
+		            
+				<div id="sidebar">
+					<ul>
+						<li class="active"><a href="/"><i class="icon-home"></i> <span>Return to Dashboard</span></a></li>		
+					</ul>
+				
+				</div>			
+				
+				<div id="content">
+					<div id="content-header" style = "padding-bottom:0px; margin-bottom:0px;">
+						<h1 style = "padding-bottom:0px; margin-bottom:0px;">Viewing Coupons</h1>				
+					</div>
+					<div class="container-fluid">
+						<div class="row-fluid" style = "margin-top:0;">					
+							<div class="span12">
+								<div class="widget-box">									
+									<div class="widget-content nopadding" >
+										<ul class="recent-posts">
+											<div class = "coupons" style = "height:500px; overflow:auto;">
+												<%= render "widgets/showcoupons" %>
+											</div>
+											
+										</ul>
+									</div>
+								</div>						
+							</div>
+							<% @show_type = "items/" + @widget.widget_type %>
+							<%= render @show_type %>
+						</div>								
+									
+					</div>
 
-		<% @items.each do |item| %>
-			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
-			<div style = "margin-bottom:20px;">
-
-				<div>
-					<% @percent_off = (@decoded["original_price"].to_f - @decoded["new_price"].to_f)/@decoded["original_price"].to_f * 100 %>
-					<%= @percent_off %>% off! 
-					<strong><%= @decoded["item"] %></strong>: <%= @decoded["description"] %>
+					<div class="row-fluid">
+						<div id="footer" class="span12">
+							2013 &copy; A Sanjay Gupta Production</a>
+						</div>
+					</div>
 				</div>
-				<div>
-					Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!
-				</div>
-			</div>
-		<% end %>
 
-		<div> <a href = "/"> Click here to go back home.</a> </div>
+		            <script src="js/jquery.min.js"></script>
+		            <script src="js/jquery.ui.custom.js"></script>
+		            <script src="js/bootstrap.min.js"></script>
+		            <script src="js/unicorn.js"></script>
+			</body>
+		</html>
 	<% else %>
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
@@ -44,32 +78,62 @@
 
 <% elsif @widget.widget_type == "survey" %>
 	<% if !mobile_device? %>
-		<% @show_type = "items/" + @widget.widget_type %>
-		<%= render @show_type %>
+		
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+			</head>
+			<body>							
+				<div id="header">
+					<h1 style = "color:#DEA;">ADABA</h1>		
+				</div>		
+		            
+				<div id="sidebar">
+					<ul>
+						<li class="active"><a href="/"><i class="icon-home"></i> <span>Return to Dashboard</span></a></li>		
+					</ul>
+				
+				</div>			
+				
+				<div id="content">
+					<div id="content-header" style = "padding-bottom:0px; margin-bottom:0px;">
+						<h1 style = "padding-bottom:0px; margin-bottom:0px;">Viewing Surveys</h1>				
+					</div>
+					<div class="container-fluid">
+						<div class="row-fluid" style = "margin-top:0;">					
+							<div class="span12">
+								<div class="widget-box">									
+									<div class="widget-content nopadding" >
+										<ul class="recent-posts">
+											<div class = "coupons" style = "height:500px; overflow:auto;">
+												<%= render "widgets/showsurveys" %>
+											</div>
+											
+										</ul>
+									</div>
+								</div>						
+							</div>
+							<% @show_type = "items/" + @widget.widget_type %>
+							<%= render @show_type %>
+						</div>								
+									
+					</div>
 
-		<% @items.each do |item| %>
-			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
-			<div style = "margin-bottom:20px;">
-				<% @question = @decoded["question"]%> 
-				<% if @decoded.has_key?("answers") %>
-					
-					<% @answers = @decoded["answers"].split(',') %>
-					<strong> <%= @question %> </strong>
-					
-					<% @answers.each do |answer| %>
-						<div style = "margin-left:20px;"><%= answer %> </div>
-					<% end %>
+					<div class="row-fluid">
+						<div id="footer" class="span12">
+							2013 &copy; A Sanjay Gupta Production</a>
+						</div>
+					</div>
+				</div>
 
-				<% elsif @decoded.has_key?("low_endpoint") %>
+		            <script src="js/jquery.min.js"></script>
+		            <script src="js/jquery.ui.custom.js"></script>
+		            <script src="js/bootstrap.min.js"></script>
+		            <script src="js/unicorn.js"></script>
+			</body>
+		</html>
 
-					<strong> <%= @question %> </strong>
-					<div style = "margin-left:20px;">Ranges from <strong> <%= @decoded["low_endpoint"] %> </strong> to <strong> <%= @decoded["high_endpoint"] %> </strong> </div>
 
-				<% end %>
-			</div>
-		<% end %>
-
-		<div> <a href = "/"> Click here to go back home.</a> </div>
 	<% else %>
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>

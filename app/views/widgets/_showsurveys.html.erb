@@ -48,13 +48,19 @@
       <div class="article-post">
         <span class="user-info">Created on <%=item.created_at %> </span>
         <p>
-          <a href="#"><%=@decoded["question"] %>: 
+          <%=@decoded["question"] %>: 
 
           <% if @decoded.has_key?("answers") %>
-            multiple choice question. </a>       
+            <em> multiple choice question. </em>  </p>   
+            <span class="answers-preview">Answers: <%=@decoded["answers"] %> </span>
+
           <% else %> 
-            slider question. </a>       
+            <em> slider question. </em>    </p>
+            <span class="answers-preview">Low value: <%=@decoded["low_endpoint"] %>, High value: <%=@decoded["high_endpoint"] %> </span>
+
           <% end %> 
+        
+
       </div>
     </li>
   <% end %>

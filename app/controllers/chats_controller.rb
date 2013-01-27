@@ -94,6 +94,7 @@ class ChatsController < ApplicationController
 		#if the user is a merchant, then add the chat to the params hash
 		if merchant_signed_in?
 			params[:current_chat_user_id] = @chat.user_id
+			logger.debug("Just set current_chat_user_id")
 		end
 
 		# find all of the chats that belong to this conversation
