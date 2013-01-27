@@ -19,9 +19,14 @@ class AnswersController < ApplicationController
     @user_id = @parameters[:user_id][:value]
 
     if @question_type == "multiple-choice"
+      logger.debug("trying to get a submission, i'm here")
+      logger.debug(@parameters.inspect)
+
       @content = @parameters[:answer][:content]
       @answer = Answer.new({:item_id => @item_id, :content => @content, :user_id => @user_id.to_i})
     elsif @question_type == "slider"
+      logger.debug("trying to get a submission, i'm here")
+      logger.debug(@parameters.inspect)
       @answer = Answer.new({:item_id => @item_id, :content => @parameters[:slider], :user_id => @user_id.to_i})
     end
 

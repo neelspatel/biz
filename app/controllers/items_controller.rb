@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
 	    @json = ActiveSupport::JSON.encode(@parameters)
 
         @item = Item.new({:widget_id => @widget_id, :data => @json})
-
         if @item.save
 	      # Handle a successful save.
 	      flash[:success] = "Thanks for creating the item!"

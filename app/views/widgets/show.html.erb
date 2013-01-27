@@ -135,7 +135,6 @@
 
 
 	<% else %>
-		<div id = "mobile_page" data-role="page" data-theme="c" data-content-theme="a">
 
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
@@ -157,9 +156,9 @@
 						<%= f.input :content, :label => "",
 						:collection => @answers, 						
 						:as => :radio, :name => "mc", :class => "btn btn-warning btn-mini"%>
-						<div style = "display:none;">
-							<%= f.button :submit, :style => "display:none;"%>
-						</div>
+						
+						<%= f.button :submit%>
+						
 
 					<% end %>
 					
@@ -179,9 +178,7 @@
 					    <input type="hidden" name="slider-hidden-x" value="0" />
 					    <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-mini="true"/>
 
-  						<div style = "display:none;">
 				     		<%= f.button :submit %>
-			     		</div>
 					<% end %> 
 
 			        </div>

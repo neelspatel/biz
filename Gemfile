@@ -4,7 +4,7 @@ gem 'fastercsv' # Only required on Ruby 1.8 and below
 gem 'rails_admin'
 gem 'rails', '3.2.9'
 gem 'gravatar_image_tag', '0.1.0'
-gem 'jquery-rails', ''
+gem 'jquery-rails'
 gem 'acts_as_commentable', '3.0.1'
 gem 'rails_autolink'
 gem 'whenever', :require => false
