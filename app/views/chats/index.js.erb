@@ -1,8 +1,8 @@
 // Select the data 
 // Update the data attributes of the things to be changed
 // Change the name of the links to New Conversations
-
 // Loop through the change count
+
 <% @update_list.each do |user_id, count| %>	
 	var update = $(".conversation[data-id='" + "<%= user_id %>" + "']");
 	console.log(update);

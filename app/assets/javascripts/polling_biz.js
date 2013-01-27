@@ -45,9 +45,9 @@ function updateChats() {
 
 // update the active chat loaded into the interface
 $(function () {
-    $(".conversation").find("a").click(function(e) {
+    $(".conversation").click(function(e) {
         var target = $(e.target);
-        active = $(target).parent().attr("data-id");
+        active = $(target).parent().parent().attr("data-id");
         $(target).html("Conversation from User " + active);
         console.log(active);
     });
