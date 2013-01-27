@@ -4,9 +4,10 @@
 	});
 </script>
 
-<div style = "height:50px; overflow:auto;">
+<div style = "height:500px; overflow:auto;">
 	<% @chats.each do |chat| %>
-		<div> <strong> <%= "in show.html.erb #{chat.from.capitalize}: " %> </strong> <%= "#{chat.content}"%> </div>
-		
+		<div> <strong> <%= "#{chat.from.capitalize}: " %> </strong> <%= "#{chat.content}"%> </div>		
 	<% end %>
 </div>
+
+<%= render 'chats/userchat' %> 
