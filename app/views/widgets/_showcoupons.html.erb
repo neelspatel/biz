@@ -4,8 +4,21 @@
   <div class="article-post">   
     
 
-    <% if !@coupon_list.nil?  %>       
-      fuck
+    <% if @coupon_list.nil?  %>
+      <div id = "create-form">
+      <%= form_tag '/widgets' do %>
+        <div id = "form-fields">
+          <div class="field">
+            <%= hidden_field_tag "type[value]", "coupon" %>  
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Your coupon list is empty, add items now by clicking this link!', :class => "btn btn-link" %>
+        </div>
+        
+      <% end %>
+
+      </div>       
     <% elsif @coupon_list.items.length > 0 %>
     		<span class="user-info">You currently have <%=@coupon_list.items.count %> coupons active. </span>        
     <% else %>
@@ -27,15 +40,17 @@
   </div>
 </li>
 
-<% @coupon_list.items.each do |item| %>
-  <% @decoded = ActiveSupport::JSON.decode(item.data) %>
+<% if !@coupon_list.nil?  %>       
+  <% @coupon_list.items.each do |item| %>
+    <% @decoded = ActiveSupport::JSON.decode(item.data) %>
 
-  <li>  
-    <div class="article-post">
-      <span class="user-info">Created on <%=item.created_at %> </span>
-      <p>
-        <a href="#"><%=@decoded["item"] %>: <%=@decoded["description"] %> </a>
-      Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!</p>    
-    </div>
-  </li>
-<% end %>
+    <li>  
+      <div class="article-post">
+        <span class="user-info">Created on <%=item.created_at %> </span>
+        <p>
+          <a href="#"><%=@decoded["item"] %>: <%=@decoded["description"] %> </a>
+        Was originally $<%= @decoded["original_price"] %>, but now only <em>$<%= @decoded["new_price"] %></em>!</p>    
+      </div>
+    </li>
+  <% end %>
+<% end %>  

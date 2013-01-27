@@ -48,9 +48,11 @@
 									<div class = "coupons" style = "height:200px; overflow:auto;">
 										<%= render "widgets/showcoupons" %>
 									</div>
-									<li class="viewall">										
-										<a title="View all posts" class="tip-top" href= <%= "/widgets/#{@coupon_list.id.to_s}" %> > + View, edit, and manage all coupons + </a>
-									</li>
+									<% if !@coupon_list.nil?  %>       
+										<li class="viewall">										
+											<a title="View all posts" class="tip-top" href= <%= "/widgets/#{@coupon_list.id.to_s}" %> > + View, edit, and manage all coupons + </a>
+										</li>
+									<% end %>
 								</ul>
 							</div>
 						</div>						
@@ -68,9 +70,11 @@
 									<div class = "coupons" style = "height:200px; overflow:auto;">
 										<%= render "widgets/showsurveys" %>
 									</div>
-									<li class="viewall">
-										<a title="View all posts" class="tip-top" href= <%= "/widgets/#{@survey_list.id.to_s}" %> > + View, edit, and manage all surveys + </a>
-									</li>
+									<% if !@survey_list.nil?  %>       
+										<li class="viewall">
+											<a title="View all posts" class="tip-top" href= <%= "/widgets/#{@survey_list.id.to_s}" %> > + View, edit, and manage all surveys + </a>
+										</li>
+									<% end %>
 								</ul>
 							</div>
 						</div>						
