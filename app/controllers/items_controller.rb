@@ -27,8 +27,7 @@ class ItemsController < ApplicationController
         if @item.save
 	      # Handle a successful save.
 	      flash[:success] = "Thanks for creating the item!"
-	      respond_with (@item)
-	      #redirect_to Widget.find(@widget_id)
+	      redirect_to Widget.find(@widget_id)
 	    else
 	      @title = "Create New Item"      
 

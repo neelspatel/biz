@@ -9,7 +9,7 @@
   <div id = "create-form">
     <div class="row-fluid" style = "margin-top:0; padding:50px;">
       <div class="span6">
-        <%= form_tag '/items', :remote => true do %>
+        <%= form_tag '/items' do %>
           <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
           <div id = "form-fields">
             <div class="field">
@@ -29,7 +29,7 @@
       </div>
 
       <div class="span6">
-        <%= form_tag '/items', :remote => true do %>
+        <%= form_tag '/items' do %>
           <div><%= hidden_field(:widget_id_value, :value, :value => params[:id]) %></div>
           <div id = "form-fields">
             <div class="field">
