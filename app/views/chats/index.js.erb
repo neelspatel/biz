@@ -5,9 +5,8 @@
 
 <% @update_list.each do |user_id, count| %>	
 	var update = $(".conversation[data-id='" + "<%= user_id %>" + "']");
-	console.log(update);
 	$(update).attr("data-count", <%= count %>);
-	$(update).find("a").html("New Chats From User " + "<%= user_id %>");
+	$(update).find("li").find("a").find("span").show();
 <% end %>
 
 // update the active chats

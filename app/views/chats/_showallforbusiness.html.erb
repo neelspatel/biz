@@ -30,7 +30,9 @@
 
 						<div class = "conversation" data-id = <%= chat.user_id %> data-count = <%= @counts[chat.user_id] %>  data-merchant = <%= chat.merchant_id %> > 
 							<% @id = "user-" + chat.user_id.to_s %>
-							<li id = <%@id%> > <%= link_to "Conversation from user #{chat.user_id}", chat, :remote => true %>  <span>User number <%= chat.user_id %></span></li>
+							<li id = <%@id%> > <%= link_to "Conversation from user #{chat.user_id}", chat, :remote => true %> 
+								<span class="msg-count badge badge-info" style="display:none;"> New Chats</span>
+							</li>
 
 							 
 						</div>

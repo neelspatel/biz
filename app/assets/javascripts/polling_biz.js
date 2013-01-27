@@ -45,11 +45,12 @@ function updateChats() {
 
 // update the active chat loaded into the interface
 $(function () {
-    $(".conversation").click(function(e) {
-        var target = $(e.target);
-        active = $(target).parent().parent().attr("data-id");
-        $(target).html("Conversation from User " + active);
+    $(".conversation").find("li").find("a").click(function(e) {
+        var target = $(e.target).parent().parent();
+        console.log("This is the target " + target);
+        active = $(target).attr("data-id");
         console.log(active);
+        $(target).find("span").hide();
     });
 });
 
