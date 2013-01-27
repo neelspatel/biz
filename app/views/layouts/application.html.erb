@@ -10,8 +10,10 @@
       <!--<%= stylesheet_link_tag 'style', :media => 'screen' %>-->  
 
       <link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
-      <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
       <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+      <%= javascript_include_tag "application" %>
+
 
       <meta charset="utf-8">
       <title></title>
@@ -43,6 +45,7 @@
   </head>
   <body>  
     <div class="container-fluid">
+
       <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>

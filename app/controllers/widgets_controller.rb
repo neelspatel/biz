@@ -40,4 +40,8 @@ class WidgetsController < ApplicationController
     end
   end
   
+  def submitsurvey
+    
+  end
+
 end
