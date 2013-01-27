@@ -95,10 +95,13 @@ class ChatsController < ApplicationController
 		if merchant_signed_in?
 			session[:current_chat_user_id] = @chat.user_id
 			logger.debug("Just set current_chat_user_id to #{@chat.user_id} which is #{params[:current_chat_user_id]}")
+			@chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => session[:current_chat_user_id]})
+		else
+			@chats = Chat.find(:all, :conditions => {:merchant_id => current_user.current_merchant_id, :user_id => current_user.id})
+
 		end
 
 		# find all of the chats that belong to this conversation
-		@chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => session[:current_chat_user_id]})
 	
 		respond_with @chats
 	
