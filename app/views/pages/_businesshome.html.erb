@@ -8,9 +8,8 @@
 	</div>
 </div>
 	<body>
-	<div id = "homediv" style = "min-width: 1500px">  
+	<div id = "homediv" style = "width:100%; min-width: 800px; margin:auto;">  
 		<h1 style = "text-shadow: 1px 7px 7px #000000;color: #EEE;font-size: 500%;">Welcome to ADABA.</h1>
-		
 		<div style = "height:100px;margin-top:-50px;margin-left:auto;margin-right:auto;">
 			<%= image_tag("phone.png", :height => '350', :width => '350', :class => "over") %>
 			<%= image_tag("monitor.png", :height => '500', :width => '500', :class => "under") %>
@@ -19,15 +18,21 @@
 	
 
 	<div class="row" style = "width:1100px;margin:auto;padding-top:20px;"> 
-	  <div class="well span4 ">
-	    <h3> Push Realtime Custom Content </h3>
+	  <div class="well span4 " style = "height:200px;">
+	    <h3> Realtime custom content </h3>
 	    <p> From real-time coupons to simple surveys, communicate easily with shoppers.</p>
+	    <div class = "center_image" id = "signal_logo_test" style = "height:50px;margin:auto;" >
+			<%= image_tag("signal.png", :height => '100', :width => '100', :class => "under") %>
+		</div>
 	  </div>
-	  <div class="well span4">
-	    <h3> Customers</h3>
+	  <div class="well span4" style = "height:150px;float:left;">
+	    <h3> Customers love it</h3>
 	    <p>Use our dope ass real-time chat to get mad digits.</p>
+	    <div id = "signal_logo" style = "height:50px;margin:auto;">
+			<%= image_tag("chat_logo.png", :height => '100', :width => '100', :class => "under") %>
+		</div>
 	  </div>
-	  <div class="well span4">
+	  <div class="well span4" style = "height:150px;">
 	    <h3> Fuckin' Analytics, Yo</h3>
 	    <p>We all know data's important. Our data will blow your mind bro.</p>
 	  </div>
