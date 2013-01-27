@@ -7,10 +7,32 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->  
     <% if mobile_device? %>
+      <!--<%= stylesheet_link_tag 'style', :media => 'screen' %>-->  
+
       <link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
-      <script src="http://code.jquery.com/jquery-1.2.1.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
       <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
       <%= javascript_include_tag "application" %>
+
+
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="description" content="Place to put your description text">
+      <meta name="author" content="">
+
+      <!-- Mobile Specific Metas ================================================== 
+      ================================================== -->
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <link rel="shortcut icon" href="images/favicon.png">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <script>
+          if (window.screen.height==568) { // iPhone 4"
+          document.querySelector("meta[name=viewport]").content="width=320.1";
+          }
+          </script>
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <% else %>  
       <%= javascript_include_tag "application" %>
       <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
@@ -23,11 +45,8 @@
   </head>
   <body>  
     <div class="container-fluid">
-      <% if !mobile_device? %>
-        <%= render 'layouts/header' %>
-        <% else %>
-        <div class = "mobile"> </div>
-      <% end %>
+
+      <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>

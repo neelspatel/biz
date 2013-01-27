@@ -14,7 +14,7 @@ function getData () {
 		else {
 			var val = $(this).find("input:radio:checked").val();	  				
 		}
-
+		
 		if (typeof val === 'undefined' ) {
 			console.log("val is undefined");
 		}
@@ -30,10 +30,10 @@ function getData () {
 	});
 }
 
+
 $("#mobile_page").on("pageinit", function(event) {
 	$('#submit_all').click(function() {
 		getData();
 	});
 })
-
 
