@@ -13,8 +13,8 @@ body {
 }
 
 body#homepagebackground {
-  padding-top: 60px;
-  background: url('gradient_squares.png');
+  padding-top: 44px;
+  background: url('lil_fiber.png');
   background-repeat: repeat;
   background-color: #94C5EB;
 }
@@ -134,11 +134,10 @@ top:70px;
 z-index:2;
 }
 
-#signal_logo
+.signal_logo
 {
-  background:url(signal.png) no-repeat center center;
-  height:50px;
-  width:50px;
+  height:100px;
+  width:100px;
 }
 
 .center_image {
