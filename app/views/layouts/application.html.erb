@@ -23,20 +23,14 @@
       <!-- Mobile Specific Metas ================================================== 
       ================================================== -->
 
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
       <link rel="shortcut icon" href="images/favicon.png">
       <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-      <script>
-          if (window.screen.height==568) { // iPhone 4"
-          document.querySelector("meta[name=viewport]").content="width=320.1";
-          }
-          </script>
+
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <% else %>  
       <%= javascript_include_tag "application" %>
-      <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-      <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>    
       <%= stylesheet_link_tag 'custom', :media => 'screen' %>
       <%= stylesheet_link_tag 'unicorn.main', :media => 'screen' %>
       <%= stylesheet_link_tag 'unicorn.grey', :media => 'screen', :class => "skin-color" %>  
