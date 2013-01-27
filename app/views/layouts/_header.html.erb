@@ -8,6 +8,10 @@
           <li class="btn btn-inverse"><a title="" href="merchants/sign_out"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
       </ul>
   </div>
+<% elsif mobile_device? %>
+  <div data-role="page"> 
+    <div data-role="header" class="buttons" data-add-back-btn="true" style = "margin-bottom:-110px;margin-top:-10px;"> <a data-icon="arrow-l" data-iconpos="notext" rel="external" href="/">Back</a> <a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right">Home</a> <h1 style = "font-size:250%;margin-top:0px;">ADABA</h1> </div>
+    <!--/header --> 
 <% else %>
   <header id="user-nav" class="navbar navbar-fixed-top navbar-inverse" style = "margin-top:-10px;margin-right:-30px;">
     <div class="navbar-inner">

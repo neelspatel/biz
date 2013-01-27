@@ -1,9 +1,12 @@
+
+
 $(function () {
 	if ($(".survey-item").length > 0) {
 		alert("Called");
 		$('#submit_all').click(function() {
 	  		//creates a list of form data to submit
 	  		var forms = [];
+	  		alert("madeform");
 	  		$(".new_answer").each(function(i, obj){
 	  			var question_type = $(this).find("#question_type_value").val();
 	  			var user_id = $(this).find("#user_id_value").val();
@@ -30,10 +33,12 @@ $(function () {
 	  			}
 
 	  			console.log(JSON.stringify(forms));
-
+	  			alert("at end");
 
 
 	  		});
 		});
 	}
-});
+
+	});
+

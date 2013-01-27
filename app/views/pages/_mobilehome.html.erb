@@ -1,28 +1,23 @@
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />                             
-    </head>
+<body>
+<div id = "mobile_page" data-role="page" > 
 
-<body style = "margin:50px;">
-	<div data-role="page" data-theme="c" data-content-theme="a">
+<div data-role="header" class="buttons ui-header ui-bar-a" data-add-back-btn="true" role="banner"> <a data-icon="arrow-l" data-iconpos="notext" rel="external" href="/" class="ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext ui-btn-up-a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" title="Back"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Back</span><span class="ui-icon ui-icon-arrow-l ui-icon-shadow">&nbsp;</span></span></a> <a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext ui-btn-up-a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" title="Home"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow">&nbsp;</span></span></a> </div>
 
-		<div data-role="header"> 
-			<h1>ADABA!</h1> 
-		</div>
-		<% @current_mobile_merchant = Merchant.find(current_user.current_merchant_id) %>
-		<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>
-		<% @current_mobile_survey = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"})%>
-		<h2>Thanks for coming to <%= @current_mobile_merchant.name %> </h2>
-		<ul data-role="listview">
-			<% @coupon_count = Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}).items.count %>
-			<li data-icon="star"><a href=  <%= widget_path(@current_mobile_coupon) %> >View current coupons <div class = "ui-li-count" ><%= @coupon_count %></div></a></li>
-			<li data-icon="bars"><a href=  <%= widget_path(@current_mobile_survey) %> >Take a quick survey</a></li>	
-		</ul>
-		<%= render "pages/mobilechatbutton" %>
 
-	</div>
-	  
+	<% @current_mobile_merchant = Merchant.find(current_user.current_merchant_id) %>
+	<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>
+	<% @current_mobile_survey = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"})%>
+	<!-- banner & title -->
+    <h2 class="pageTitle"><span>Thanks for coming to <%= @current_mobile_merchant.name %> </span></h2>
+    <div class="bannerContainer"> <% image_tag "4.jpg" %> </div>
+	
+	<ul data-role="listview">
+		<% @coupon_count = Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}).items.count %>
+		<li data-icon="star"><a href=  <%= widget_path(@current_mobile_coupon) %> >View current coupons <div class = "ui-li-count" ><%= @coupon_count %></div></a></li>
+		<li data-icon="bars"><a href=  <%= widget_path(@current_mobile_survey) %> >Take a quick survey</a></li>	
+	</ul>
+	<%= render "pages/mobilechatbutton" %>
+
+</div>
+  
 </body>
