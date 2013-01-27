@@ -8,8 +8,9 @@
     <![endif]-->  
     <% if mobile_device? %>
       <link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
-      <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.2.1.min.js"></script>
       <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+      <%= javascript_include_tag "application" %>
     <% else %>  
       <%= javascript_include_tag "application" %>
       <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
@@ -24,6 +25,8 @@
     <div class="container-fluid">
       <% if !mobile_device? %>
         <%= render 'layouts/header' %>
+        <% else %>
+        <div class = "mobile"> </div>
       <% end %>
       <section class="round">
         <% flash.each do |key, value| %>

@@ -4,7 +4,6 @@
   }
   </style>
 
-
 <% if @widget.widget_type == "coupon" %>
 
 	<% if !mobile_device? %>
@@ -135,6 +134,8 @@
 
 
 	<% else %>
+		<div id = "mobile_page" data-role="page" data-theme="c" data-content-theme="a">
+
 		<% @items.each do |item| %>
 			<% @decoded = ActiveSupport::JSON.decode(item.data) %>
 			<div style = "margin-bottom:20px;" class = "survey-item">
@@ -187,7 +188,9 @@
 		<% end %>
 
         <button id="submit_all">Submit All Shit</button>
+		
 		<%= render "pages/mobilechatbutton" %>
+	</div>
 
 	<% end %>
 <% end %>

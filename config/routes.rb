@@ -13,5 +13,6 @@ Biz::Application.routes.draw do
   resources :chats, :only => [:index, :create, :show]
   resources :answers, :only => [:create, :show, :destroy]
 
+  match '/widgets/submitsurvey' => 'widgets#submitsurvey', :via => :post
 
 end
