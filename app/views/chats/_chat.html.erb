@@ -1,5 +1,13 @@
-<div class = "chat" data-time = "<%= chat.created_at%>"> 
-	<strong> <%= "#{chat.from.capitalize}: " %> </strong> 
-	<%= "#{chat.content}"%> 
-</div>	
 
+<p id="msg-<%=chat.id%>" class="user-#{chat.from} chat" style="display: block; margin-bottom:-18px;">
+	<% if chat.from == "merchant"%>
+		<%= image_tag("merchant.ico")%>
+	<% else %>
+		<%= image_tag("user.ico")%>
+	<% end %>
+	<span class="msg-block">
+		<strong><%= "#{chat.from.capitalize}" %></strong> 
+		<span class="time">- <%= chat.created_at%> </span>
+		<span class="msg" style = "margin-top:-5px;margin-bottom:0px;"><%= "#{chat.content}"%> </span>
+	</span>
+</p>

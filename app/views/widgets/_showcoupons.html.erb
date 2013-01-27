@@ -2,8 +2,11 @@
 
 <li>  
   <div class="article-post">   
-  
-    <% if @coupon_list.items.length > 0 %>
+    
+
+    <% if !@coupon_list.nil?  %>       
+      fuck
+    <% elsif @coupon_list.items.length > 0 %>
     		<span class="user-info">You currently have <%=@coupon_list.items.count %> coupons active. </span>        
     <% else %>
     	<div id = "create-form">
@@ -14,7 +17,7 @@
           </div>
         </div>
         <div class="actions">
-          <%= submit_tag 'Your coupon list is empty, add items now!', :class => "btn btn-link" %>
+          <%= submit_tag 'Your coupon list is empty, add items now by clicking this link!', :class => "btn btn-link" %>
         </div>
         
       <% end %>

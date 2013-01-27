@@ -1,4 +1,13 @@
 <% if merchant_signed_in? %>
+  <style> body {padding-top:0px;}</style> 
+     
+  <div id="user-nav" class="navbar navbar-inverse">
+      
+      <ul class="nav btn-group">           
+          <li class="btn btn-inverse"><a title="" href="asdfs"><i class="icon icon-bold"></i> <span class="text">Settings</span></a></li>
+          <li class="btn btn-inverse"><a title="" href="merchants/sign_out"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+      </ul>
+  </div>
 <% else %>
   <header id="user-nav" class="navbar navbar-fixed-top navbar-inverse" style = "margin-top:-10px;margin-right:-30px;">
     <div class="navbar-inner">

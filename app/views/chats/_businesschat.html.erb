@@ -10,18 +10,20 @@
     <div><%= hidden_field(:user_id, :value, :value => params[:current_chat_user_id]) %></div>
     <div><%= hidden_field(:from, :value, :value => "merchant") %></div>
 
+<div class="chat-message well">
+        
     <div id = "form-fields">
-      <div class="field" style = "height:20px;">
-        <%=text_field_tag 'content'%>    
-      </div>      
+      <span class="field input-box" >
+        <%=text_field_tag 'chat_content'%>    
+      </span>      
     </div>
     <div class="actions">
-      <%= submit_tag 'Send' %>
+      <%= submit_tag 'Send', :class => "btn btn-success pull-right", :style => "margin-top:-30px;" %>
     </div>
     
   <% end %>
 
-  </div>
+</div>
   <body>
 </html>
 

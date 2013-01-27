@@ -59,12 +59,13 @@ class ChatsController < ApplicationController
   	end
 
 	def create		
-        @chat = Chat.new({:user_id => params[:user_id][:value], :merchant_id => params[:merchant_id][:value], :content => params[:content], :from => params[:from][:value]})
+        @chat = Chat.new({:user_id => params[:user_id][:value], :merchant_id => params[:merchant_id][:value], :content => params[:chat_content], :from => params[:from][:value]})
 
         if @chat.save
 	      # Handle a successful save.
 	      flash[:success] = "Thanks for creating the chat!"
 	      
+
 	      if merchant_signed_in?
 	      	#redirect_to @chat
 	      	redirect_to @chat
