@@ -58,8 +58,13 @@ class ChatsController < ApplicationController
       @chat = Chat.new(params[:chat])
   	end
 
-	def create		
-        @chat = Chat.new({:user_id => session[:current_chat_user_id], :merchant_id => params[:merchant_id][:value], :content => params[:chat_content], :from => params[:from][:value]})
+	def create	
+		if merchant_signed_in?
+			@user_id = session[:current_chat_user_id]
+		else
+			@user_id = current_user.id
+		end	
+        @chat = Chat.new({:user_id => @user_id, :merchant_id => params[:merchant_id][:value], :content => params[:chat_content], :from => params[:from][:value]})
 		logger.debug("Just created chat with user id #{session[:current_chat_user_id]}")
 		logger.debug("Params is #{session.inspect}")
         if @chat.save
@@ -70,7 +75,9 @@ class ChatsController < ApplicationController
 	      	#redirect_to @chat
 			respond_with(@chat)	
 	      else
-	      	respond_with(@chat)
+	      	#respond_with(@chat)
+		    redirect_to "/pages/useremulate"
+
       	  end
 	    else
 	      #we should definitely fix this long term - this should be in a partial, but i can't get it to work right there
@@ -94,12 +101,10 @@ class ChatsController < ApplicationController
 		#if the user is a merchant, then add the chat to the params hash
 		if merchant_signed_in?
 			session[:current_chat_user_id] = @chat.user_id
-			logger.debug("Just set current_chat_user_id to #{@chat.user_id} which is #{params[:current_chat_user_id]}")
-			@chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => session[:current_chat_user_id]})
-		else
-			@chats = Chat.find(:all, :conditions => {:merchant_id => current_user.current_merchant_id, :user_id => current_user.id})
-
+			logger.debug("Just set current_chat_user_id to #{@chat.user_id} which is #{params[:current_chat_user_id]}")		
 		end
+		@chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id, :user_id => session[:current_chat_user_id]})
+
 
 		# find all of the chats that belong to this conversation
 	
