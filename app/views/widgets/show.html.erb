@@ -176,9 +176,11 @@
 					    <div><%= hidden_field(:item_id_value, :value, :value => item.id) %></div>
 
 					    <input type="hidden" name="slider-hidden-x" value="0" />
-					    <input type="range" name="slider" id="slider" value="0" min="0" max="100"  />
-				      
-				     	<%= f.button :submit %>
+					    <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-mini="true"/>
+
+  						<div style = "display:none;">
+				     		<%= f.button :submit %>
+			     		</div>
 					<% end %> 
 
 			        </div>

@@ -1,8 +1,4 @@
 <body>
-<div id = "mobile_page" data-role="page" > 
-
-<div data-role="header" class="buttons ui-header ui-bar-a" data-add-back-btn="true" role="banner"> <a data-icon="arrow-l" data-iconpos="notext" rel="external" href="/" class="ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext ui-btn-up-a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" title="Back"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Back</span><span class="ui-icon ui-icon-arrow-l ui-icon-shadow">&nbsp;</span></span></a> <a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext ui-btn-up-a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" title="Home"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Home</span><span class="ui-icon ui-icon-home ui-icon-shadow">&nbsp;</span></span></a> </div>
-
 
 	<% @current_mobile_merchant = Merchant.find(current_user.current_merchant_id) %>
 	<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>

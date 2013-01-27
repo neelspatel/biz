@@ -1,0 +1,45 @@
+.our_slider{
+
+-webkit-background-clip: padding-box;
+background-attachment: scroll;
+background-clip: padding-box;
+background-color: #D6D6D6;
+background-image: -webkit-linear-gradient(top, #D0D0D0, #DFDFDF);
+background-origin: padding-box;
+border-bottom-color: #BBB;
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: #BBB;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: #BBB;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: #BBB;
+border-top-left-radius: 16px;
+border-top-right-radius: 16px;
+border-top-style: solid;
+border-top-width: 1px;
+color: #222;
+display: inline-block;
+font-family: Helvetica, Arial, sans-serif;
+font-weight: bold;
+height: 15px;
+margin-bottom: 0px;
+margin-left: 20px;
+margin-right: 2%;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 0px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 0px;
+position: relative;
+text-decoration: none;
+text-shadow: white 0px 1px 0px;
+top: 4px;
+width: 526px;
+}
