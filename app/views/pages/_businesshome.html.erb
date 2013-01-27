@@ -3,11 +3,9 @@
 		$('.carousel').carousel()
 	</script>
 </head>
-
-	<body>
-	<div id = "homediv" style = "min-width: 1500px">  
-		<h1 style = "text-shadow: 1px 7px 7px #000000;color: #EEE;font-size: 500%;">Welcome to ADABA.</h1>
-		
+	<body id = "homepagebackground">
+	<div id = "homediv" style = "width:100%; min-width: 800px; margin:auto;">  
+		<h1 style = "text-shadow: 1px 3px 3px #000000;color: #EEE;font-size: 240%;"> Interact with your customers in your store. Online. </h1>
 		<div style = "height:100px;margin-top:-50px;margin-left:auto;margin-right:auto;">
 			<%= image_tag("phone.png", :height => '350', :width => '350', :class => "over") %>
 			<%= image_tag("monitor.png", :height => '500', :width => '500', :class => "under") %>
@@ -15,18 +13,27 @@
 	</div>
 	
 
-	<div class="row" style = "width:1200px;margin:auto;padding-top:20px;"> 
-	  <div class="well span4 ">
-	    <h3><i class="icon-heart"></i> Push custom content to consumers</h3>
-	    <p>From real-time coupons to detailed surveys, bitches love content.</p>
+	<div class="row" style = "width:1100px;margin:auto;padding-top:20px;"> 
+	  <div class="well span4 " style = "height:200px;">
+	    <h3> Push your content </h3>
+	    <p> From real-time coupons to simple surveys, communicate easily with your customers</p>
+	    <div class = "signal_logo" style = "height:50px;margin:auto;" >
+			<%= image_tag("signal.png", :height => '80', :width => '80', :class => "under") %>
+		</div>
 	  </div>
-	  <div class="well span4">
-	    <h3><i class="icon-gift"></i> Customers recieve custom offers and help</h3>
-	    <p>Use our dope ass real-time chat to get mad digits.</p>
+	  <div class="well span4" style = "height:200px;float:left;">
+	    <h3> Customers love it</h3>
+	    <p>Our real time chat ... </p>
+	    <div class = "signal_logo" style = "height:50px;margin:auto;">
+			<%= image_tag("chat_logo.png", :height => '80', :width => '80', :class => "under") %>
+		</div>
 	  </div>
-	  <div class="well span4">
-	    <h3><i class="icon-signal"></i> Fuckin' Analytics, Yo</h3>
-	    <p>We all know data's important. Our data will blow your mind bro.</p>
+	  <div class="well span4" style = "height:200px;">
+	    <h3> Analytics </h3>
+	    <p> We all know data's important. Our data will blow your mind bro. </p>
+	    <div class = "signal_logo" style = "height:50px;margin:auto;" >
+			<%= image_tag("analytics.png", :height => '80', :width => '80', :class => "under") %>
+		</div>
 	  </div>
 	  
 	</div>
