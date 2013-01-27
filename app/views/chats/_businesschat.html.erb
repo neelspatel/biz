@@ -7,7 +7,7 @@
   <div id = "create-form">
   <%= form_tag '/chats', :remote => true do %>
     <div><%= hidden_field(:merchant_id, :value, :value => current_merchant.id) %></div>
-    <div><%= hidden_field(:user_id, :value, :value => params[:current_chat_user_id]) %></div>
+    <div><%= hidden_field(:user_id, :value, :value => params[:current_chat_user_id].to_i) %></div>
     <div><%= hidden_field(:from, :value, :value => "merchant") %></div>
 
 <div class="chat-message well">
@@ -18,7 +18,7 @@
       </span>      
     </div>
     <div class="actions">
-      <%= submit_tag 'Send', :class => "btn btn-success pull-right", :style => "margin-top:-30px;" %>
+      <%= submit_tag 'Send', :remote => true, :class => "btn btn-success pull-right", :style => "margin-top:-30px;" %>
     </div>
     
   <% end %>

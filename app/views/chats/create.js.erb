@@ -1,0 +1,3 @@
+$("#chats_inner").append("<%= escape_javascript (render(@chat, :partial => 'show.html.erb'))%>");
+$("#chat_content").val("");
+$("#chats_inner").scrollTop($("#chats_inner")[0].scrollHeight);
