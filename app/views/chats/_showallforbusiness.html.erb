@@ -23,8 +23,11 @@
 			<div class="panel-content nopadding">
 				<ul class="contact-list">					
 					
-					<% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %>
-					<% @counts = Chat.count(:all, :group => "user_id") %>
+					<!--- <% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %> -->
+					<% @chats = Chat.where(:merchant_id => current_merchant.id).grouped('user') %>
+
+					<!--- <% @counts = Chat.count(:all, :group => "user_id") %> -->
+					<% @counts = @chats.count %>
 
 					<% @chats.reverse.each do |chat| %>
 
