@@ -23,11 +23,28 @@
 			<div class="panel-content nopadding">
 				<ul class="contact-list">					
 					
-					<!--- <% @chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}, :group => "user_id") %> -->
-					<% @chats = Chat.where(:merchant_id => current_merchant.id).grouped('user') %>
+					<% @all_chats = Chat.find(:all, :conditions => {:merchant_id => current_merchant.id}) %>
+					<% @all_counts = Chat.count(:all) %>
+					<% @chats = [] %>
+					<% @counts = {} %>
+					<% @user_ids = []%>
+					
 
-					<!--- <% @counts = Chat.count(:all, :group => "user_id") %> -->
-					<% @counts = @chats.count %>
+					<% @all_chats.each do |current_chat | %>
+						<% if @user_ids.include?(current_chat.user_id) %>	
+							<% @counts[current_chat.user_id] = @counts[current_chat.user_id] + 1 %>						
+						<% else %>
+							<% @user_ids << current_chat.user_id %>
+							<% @chats << current_chat %>
+							<% @counts[current_chat.user_id] = 1 %>
+						<% end %>
+					<% end %>
+
+					<% logger.debug("Chats are: ") %>
+					<% logger.debug(@chats.inspect) %>
+					<% logger.debug("counts are: ") %>
+					<% logger.debug(@counts.inspect) %>
+
 
 					<% @chats.reverse.each do |chat| %>
 
