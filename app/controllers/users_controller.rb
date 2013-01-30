@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @value = 1
 
     @user = User.new({:unique_cookie => cookies[:biz_recognized_cookie_user], :current_merchant_id => @value})
-    #@user.current_merchant_id = 1
+    #@user.current_merchant_id = 5
     @user.save!
   end
 end
