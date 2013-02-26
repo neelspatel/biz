@@ -12,12 +12,12 @@
 
     <div id = "form-fields">
       <div class="field">
-        <%=label_tag 'chat_content' %>
-        <%=text_field_tag 'chat_content'%>    
+        
+        <%=text_field_tag 'chat_content', nil, :placeholder => "Chat something here!"%>    
       </div>      
     </div>
     <div class="actions">
-      <%= submit_tag 'Save' %>
+      <%= submit_tag 'Send' %>
     </div>
     
   <% end %>

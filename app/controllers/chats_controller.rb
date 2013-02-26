@@ -82,7 +82,8 @@ class ChatsController < ApplicationController
 			respond_with(@chat)	
 	      else
 	      	#respond_with(@chat)		    
-	      	redirect_to "/pages/useremulate"
+			redirect_to "/chats"
+
       	  end
 	    else
 	      #we should definitely fix this long term - this should be in a partial, but i can't get it to work right there

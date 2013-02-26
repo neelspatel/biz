@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 	#creates a user, including cookie verification or cookie creation
 	def instantiateUser
 		#checks if cookie exists; if not, creates it
-		if(!cookies[:biz_recognized_cookie_user])
+		if(!cookies[:biz_recognized_cookie_user] || !User.find(:all, :conditions => {:unique_cookie => cookies[:biz_recognized_cookie_user]}).first)
 			require 'digest/md5'
 			@cookie_value = Digest::MD5.hexdigest(Time.now.to_s+ request.remote_ip.to_s)
 			cookies[:biz_recognized_cookie_user] = { :value => @cookie_value, :expires => 100.years.from_now }
