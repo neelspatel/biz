@@ -1,13 +1,26 @@
 
 <p id="msg-<%=chat.id%>" class="user-#{chat.from} chat" style="display: block; margin-bottom:-18px;">
-	<% if chat.from == "merchant"%>
-		<%= image_tag("merchant.ico")%>
+	<% if merchant_signed_in?%>
+		<% if chat.from == "merchant"%>
+			<%= image_tag("merchant.ico")%>
+		<% else %>
+			<%= image_tag("user.ico")%>
+		<% end %>
+		<span class="msg-block">
+			<strong><%= "#{chat.from.capitalize}" %></strong> 
+			<span class="time">- <%= chat.created_at%> </span>
+			<span class="msg" style = "margin-top:-5px;margin-bottom:0px;"><%= "#{chat.content}"%> </span>
+		</span>
 	<% else %>
-		<%= image_tag("user.ico")%>
+		<% if chat.from == "merchant"%>
+			<%= image_tag("merchant.ico", :height => "10%", :style => "padding-top:10px;")%>
+		<% else %>
+			<%= image_tag("user.ico", :height => "10%")%>
+		<% end %>
+		<span class="msg-block" style = "margin:0;">
+			<strong><%= "#{chat.from.capitalize}" %></strong> 
+			<span class="time">- </span>
+			<span class="msg" style = "margin-top:-5px;margin-bottom:0px;"><%= "#{chat.content}"%> </span>
+		</span>
 	<% end %>
-	<span class="msg-block">
-		<strong><%= "#{chat.from.capitalize}" %></strong> 
-		<span class="time">- <%= chat.created_at%> </span>
-		<span class="msg" style = "margin-top:-5px;margin-bottom:0px;"><%= "#{chat.content}"%> </span>
-	</span>
 </p>

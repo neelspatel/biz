@@ -1,16 +1,28 @@
 <body>
 
 	<% @current_mobile_merchant = Merchant.find(current_user.current_merchant_id) %>
-	<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>
-	<% @current_mobile_survey = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"})%>
 	<!-- banner & title -->
     <h2 class="pageTitle"><span>Thanks for coming to <%= @current_mobile_merchant.name %> </span></h2>
     <div class="bannerContainer"> <% image_tag "4.jpg" %> </div>
 	
 	<ul data-role="listview">
-		<% @coupon_count = Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}).items.count %>
-		<li data-icon="star"><a href=  <%= widget_path(@current_mobile_coupon) %> >View current coupons <div class = "ui-li-count" ><%= @coupon_count %></div></a></li>
-		<li data-icon="bars"><a href=  <%= widget_path(@current_mobile_survey) %> >Take a quick survey</a></li>	
+		<% if Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}) %>
+			<% @current_mobile_coupon = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"})%>
+			<% @coupon_count = Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "coupon"}).items.count %>
+			<li data-icon="star"><a href=  <%= widget_path(@current_mobile_coupon) %> >View current coupons <div class = "ui-li-count" ><%= @coupon_count %></div></a></li>
+		<% else %>
+			<li>Sorry, no coupons yet </li>
+		<% end %>
+
+		<% if Widget.find(:first, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"}) %>
+			<% @current_mobile_survey = Widget.find(:last, :conditions => {:merchant_id => current_user.current_merchant_id, :widget_type => "survey"})%>
+			<li data-icon="bars"><a href=  <%= widget_path(@current_mobile_survey) %> >Take a quick survey</a></li>	
+		<% else %>
+			<li>Sorry, no surveys yet </li>
+		<% end %>
+
+
+		
 	</ul>
 	<%= render "pages/mobilechatbutton" %>
 
