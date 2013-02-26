@@ -1,0 +1,7 @@
+<div style = "height:400px; overflow:auto;">
+	<% @chats.each do |chat| %>
+		<%=render chat %>	
+	<% end %>
+</div>
+
+<%= render 'chats/userchat' %> 
