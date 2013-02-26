@@ -46,7 +46,7 @@
 
     <li>  
       <div class="article-post">
-        <span class="user-info">Created on <%=item.created_at %> </span>
+        <span class="user-info">Created on <%=item.created_at %>. <%= link_to "Delete item", item, :method=>:delete, :confirm=>"Are you sure?", :style => "font-style:italic;" %> </span>
         <p>
           <%=@decoded["question"] %>: 
 

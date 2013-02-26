@@ -57,7 +57,8 @@ class ItemsController < ApplicationController
 	      flash[:error] = "Sorry, item not destroyed"
 	    end
 	    
-	  end
+    end    
+
 
 	def show
 		@item = Item.find(params[:id])
