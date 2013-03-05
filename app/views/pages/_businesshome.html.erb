@@ -6,42 +6,68 @@
 <body id = "homepagebackground">
 	<div id = "homediv" style = "width:100%; min-width: 800px; margin:auto;">  
 		<h1 style = "text-shadow: 1px 3px 3px #000000;color: #EEE;font-size: 240%;"> Interact with customers in your store. Online. </h1>
-			
-			<div style = "position: absolute;left:50%;margin-left:-200px;">
+			<div  class = "hero-unit" style = "position: absolute;left:10%; width:600px; background-color: rgba(5,5,5,0.7); padding: 10px;">
+				<h1 style = "color:#eee; font-size: 200%;">Butucu is a platform for brick-and-mortar stores to connect with in-store customers.</h1>
+				<p style = "color: #bbb; padding:20px;">
+					At Butucu, we're focused on bringing brick-and-mortar stores into the 21st century. Our solutions make it easy for <b>businesses and customers to engage</b> with one another, <b>sharing relevant information and feedback</b>.
+				</p>
+			</div>
+				
+			<div style = "position: absolute;left:50%;">
 				<%= image_tag("combined.png", :height => '550', :width => '550')%>
 			</div>
+			
 	</div>
 	
 
-	<div class="row" style = "margin:auto;padding-top:20px;"> 
+	<div class="row center" style = "padding-top:20px; width:1100px"> 
 	  <div class="well span4 " style = "height:200px;">
-	    <h3> Push your content </h3>
-	    <p> From real-time coupons to simple surveys, communicate easily with your customers.
-	    	Use our real-time chat to answer and interact with customers immediately.
+	    <h3><%= image_tag("signal.png", :height => '50', :width => '50', :class => "under") %> Push your content </h3>
+	    <p> Businesses can customize content from real-time coupons to simple surveys to <b>communicate easily with customers</b>.
+	    	Use our real-time chat to answer and interact with customers immediately.	    
 	    </p>
-	    <div class = "signal_logo" style = "height:50px;margin:auto;" >
-			<%= image_tag("signal.png", :height => '80', :width => '80', :class => "under") %>
-		</div>
 	  </div>
 	  <div class="well span4" style = "height:200px;float:left;">
-	    <h3> Customers love it</h3>
-	    <p>Our real time chat ... </p>
-	    <div class = "signal_logo" style = "height:50px;margin:auto;">
-			<%= image_tag("chat_logo.png", :height => '80', :width => '80', :class => "under") %>
-		</div>
+	    <h3><%= image_tag("chat_logo.png", :height => '50', :width => '50', :class => "under") %> Customers love it</h3>
+	    <p>
+	    	Customers can engage with your store and get the information they need - <b>quickly</b> and <b>intuitively</b>. Customers can get the experience and <b>convenience of an in-store app</b> without having to download a new app for each business.  
+	    </p>	    
 	  </div>
 	  <div class="well span4" style = "height:200px;">
-	    <h3> Analytics </h3>
-	    <p> We all know data's important. Our data will help you understand your customers and address their needs.. </p>
-	    <div class = "signal_logo" style = "height:50px;margin:auto;" >
-			<%= image_tag("analytics.png", :height => '80', :width => '80', :class => "under") %>
-		</div>
+	    <h3><%= image_tag("analytics.png", :height => '50', :width => '50', :class => "under") %> Analytics </h3>
+	    <p> We all know data's important. Our data will help you <b>understand your customers and address their needs</b>. Additionally, we're one of the first services to provide <b>comparative analytics</b> on customers between stores.
+	    </p>	    
 	  </div>
 	  
 	</div>
+	<div id = "learn-more" style = "width:100%; min-width: 800px; margin:auto; padding:10px;"> 
+	  <h1 style = "text-shadow: 1px 3px 3px #000000;color: #EEE;font-size: 240%;"> How It Works. </h1>
+	  <div class="row center" style = "padding-top:20px; width:1500px"> 
+		  <div class="well span4 " style = "height:200px;">
+		    <h3>1. Businesses set up a 5 minute profile on Butucu</h3>
+		    <p> Info here.	    
+		    </p>
+		  </div><div class="well span4 " style = "height:200px;">
+		    <h3>2. Businesses create custom content</h3>
+		    <p> Info here.	    
+		    </p>
+		  </div><div class="well span4 " style = "height:200px;">
+		    <h3>3. Customers access and interact with content</h3>
+		    <p> Info here.	    
+		    </p>
+		  </div>
+		  <div class="well span4 " style = "height:200px;">
+		    <h3>4. Businesses gain insightful analytics</h3>
+		    <p> Info here.	    
+		    </p>
+		  </div>
+		  
+		  
+		</div>
+	</div>
 	<div class="row-fluid">
 		<div id="footer" class="span12">
-			2013 &copy; Developed by James Ruben, <a href = "http://www.npatel.me">Neel Patel</a>, and Nithin Tumma.</a>
+			2013 &copy; Developed by James Ruben, <a href = "http://www.npatel.me">Neel Patel</a>, and <a href = "http://www.ntumma.com">Nithin Tumma</a>.</a>
 		</div>
 	</div>
 </body>

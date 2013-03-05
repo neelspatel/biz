@@ -36,18 +36,18 @@
       <%= stylesheet_link_tag 'unicorn.main', :media => 'screen' %>
       <%= stylesheet_link_tag 'unicorn.grey', :media => 'screen', :class => "skin-color" %>  
     <% end %>  
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic,700,900' rel='stylesheet' type='text/css'>  
   </head>
   <body>  
-    <div class="container-fluid">
+    <div class="container" style = "width:auto; min-width:1500px;">
 
       <%= render 'layouts/header' %>
       <section class="round">
         <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
+        <% end %>        
       </section>
+      <%= yield %>
     </div>
         
   </body>

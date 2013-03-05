@@ -4,8 +4,8 @@
   <div id="user-nav" class="navbar navbar-inverse">
       
       <ul class="nav btn-group">           
-          <li class="btn btn-inverse"><a title="" href="asdfs"><i class="icon icon-bold"></i> <span class="text">Settings</span></a></li>
-          <li class="btn btn-inverse"><a title="" href="merchants/sign_out"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+          <li class="btn btn-inverse"><a title="" href="../merchants/edit"><i class="icon icon-bold"></i> <span class="text">Settings</span></a></li>
+          <li class="btn btn-inverse"><a title="" href="../merchants/sign_out"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
       </ul>
   </div>
 <% elsif mobile_device? %>
@@ -22,21 +22,13 @@
       <div class="container">
         <nav>
           <%= link_to "BUTUCU", root_path, :class => 'brand' %>
-          <ul class="nav pull-right">         
-            <% if merchant_signed_in? %>
-              <ul class="nav btn-group">           
-                <li class="btn btn-inverse"><a title="" href="asdfs"><i class="icon icon-bold"></i> <span class="text">Settings</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="merchants/sign_out"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-              </ul>
-            <% else %>
-              <li>
-              <%= link_to('Sign up', new_merchant_registration_path)  %>
-              </li>
-              <li>
-              <%= link_to('Login', new_merchant_session_path)  %>
-              </li>
-            <% end %>          
-              
+          <ul class="nav pull-right">                     
+            <li>
+            <%= link_to('Sign up', new_merchant_registration_path)  %>
+            </li>
+            <li>
+            <%= link_to('Login', new_merchant_session_path)  %>
+            </li>
           </ul>
         </nav>
       </div>
