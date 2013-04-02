@@ -8,3 +8,5 @@ Butucu lets brick-and-mortar stores push custom content to in-store customers. W
 For businesses: We let small and medium businesses engage with customers without the cost of developing an in-house app. Plus, we have an easy-to-use dashboard to manage all content in one place.
 For customers: We give customers relevant content based on location, without having to download a new app for each individual store. We make the experience easy and consistent, while giving customers accessible help and relevant coupons.
 Analytics: We're bringing analytics to physical stores, a space that hasn't changed much over the past decade. With Butucu, we can analyze and profile customers while measuring customer engagement, net promoter score, and other key metrics. We can also A/B test products and coupons for stores and provide real-time feedback.
+
+http://stephensykes.com/images/pngimage
