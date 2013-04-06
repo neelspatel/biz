@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125235028) do
+ActiveRecord::Schema.define(:version => 20130406212606) do
 
   create_table "answers", :force => true do |t|
     t.integer  "item_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130125235028) do
     t.string   "address"
     t.string   "phone_number"
     t.string   "domain"
+    t.string   "location"
   end
 
   add_index "merchants", ["confirmation_token"], :name => "index_merchants_on_confirmation_token", :unique => true
