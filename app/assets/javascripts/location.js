@@ -32,7 +32,6 @@ function getLocation() {
 	{
 		var options=  {timeout:6000, enableHighAccuracy: true};
 		var geoloc = navigator.geolocaction;
-
 	}
 	else
 	{

@@ -1,3 +1,5 @@
+
+
 <h2>Sign up</h2>
 <div class = "hero-unit">
   <h3>Sign up here, and we'll send you a confirmation email to get started!</h3>
@@ -10,8 +12,11 @@
     <div><%= f.label :email %><br />
     <%= f.email_field :email%></div>
 
-    <div><%= f.label :address %><br />
+    <div><%= f.label "Address: Address, City, State, ZIP" %><br />
     <%= f.text_field :address%></div>
+
+    <div><%= f.label "Location" %><br />
+    <%= f.text_field :location%></div>
 
     <div><%= f.label :phone_number %><br />
     <%= f.text_field :phone_number%></div>
@@ -30,3 +35,34 @@
 
   <%= render "devise/shared/links" %>
 </div>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMJqlz-kGScb1Ua13VzUcZPeDfCH8lzSc&sensor=false">
+</script>
+
+<script>
+    $('#new_merchant').submit( function () {        
+        var address = $('#merchant_address').val();                
+        var geocoder = new google.maps.Geocoder();
+        if (geocoder)
+        {
+            geocoder.geocode({'address': address}, function (results, status){
+                if(status == google.maps.GeocoderStatus.OK) {
+                    var lat = results[0].geometry.location.jb;
+                    var lng = results[0].geometry.location.kb;
+                    var string = lat + "," + lng;
+                    $('#merchant_location').val(string);
+                    console.log($('#merchant_location').val());
+                    return true;
+                }
+                else
+                {
+                    // Geocoding seems to have failed                     
+                    alert("Sorry, geocoding failed. Your address is not in our database - please try again.\nRemember to include address, city, state, and ZIP code.");
+                    return false;
+                }
+            })
+        } 
+        return false;
+    });
+</script>

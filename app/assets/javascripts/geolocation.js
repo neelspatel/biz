@@ -1,4 +1,7 @@
-//called upon document loat
+//called upon document load
+// need to add logic so only called on mobile phone
+// how do we know what view to trigger
+
 $(function (){
  
         var watchID;
